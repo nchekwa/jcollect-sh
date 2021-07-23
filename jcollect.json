@@ -1,0 +1,41 @@
+{
+"devices": [
+    {
+        "type": "qfx",
+        "ip": "10.240.40.30",
+        "desc": "leaf",
+        "credentials": "root_account",
+        "active": false
+    },
+    {
+        "type": "qfx",
+        "ip": "10.240.40.31",
+        "desc": "leaf",
+        "ssh":  { "port": "22" },
+        "credentials": "root_account"
+    },
+    {
+        "type": "qfx",
+        "ip": "10.240.40.51",
+        "desc": "leaf",
+        "ssh":  { "port": "22" },
+        "credentials": "root_account",
+        "active": false
+    }
+],
+"credentials": [
+    {
+        "root_account": 
+            {
+            "username": "root", 
+            "password": "root123"
+        },
+        "root_account2": 
+        {
+            "username": "root", 
+            "password": "admin123"
+        }
+    }
+]
+
+}
