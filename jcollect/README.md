@@ -1,2 +1,2 @@
-# jcollect-sh
+# jcollect-run-script
 Juniper Techsupport Collector
