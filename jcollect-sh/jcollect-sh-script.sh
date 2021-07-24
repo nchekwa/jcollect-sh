@@ -148,14 +148,14 @@ echo ""
 # TASKS:
 # =================================================================================================
 # TASK - Check if in our folder there are some J_EXTERNAL SH scripts to run
-j_files=`ls junos_*.sh evo*.sh 2>/dev/null`
+j_files=`ls junos_*.sh junos-qfx_*.sh evo*.sh 2>/dev/null`
 for j_ext in $j_files
 do
     # Prevent loop - we dont whant to run in loop with this script
     if [ $j_ext != ${0##*/} ]
     then
         j_file_noExt=$(echo "$j_ext" | sed -e "s/\.[^.]*$//")
-        a=$(echo "$j_file_noExt" | sed -e "s/^junos_[a-zA-Z0-9]*_//" -e "s/^evo_[a-zA-Z0-9]*_//" -e "s/_/ /")
+        a=$(echo "$j_file_noExt" | sed -e "s/^junos_[a-zA-Z0-9-]*_//" -e "s/^evo_[a-zA-Z0-9-]*_//" -e "s/^junos-qfx_[a-zA-Z0-9-]*_//" -e "s/_/ /g")
         action="${a} [EXTERNAL]"
         cp $j_ext $file_path/$j_ext
         print_status
