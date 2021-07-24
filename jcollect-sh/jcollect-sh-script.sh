@@ -24,6 +24,7 @@ date_time=$(date '+%Y-%m-%d %H:%M:%S')
 date_time_fname=$(date '+%Y%m%dT%H%M%S_%s')
 hostname=$(hostname -s)
 PIDFILE=/var/tmp/jcollect-sh.pid
+TASKTIMEOUT=1800
 
 print_status () {
     echo ""
@@ -48,7 +49,7 @@ run_background () {
             then
             printf "\n[%5s] " $line
             fi
-        if ([ $sec -gt  1750 ])
+        if ([ $sec -gt $TASKTIMEOUT ])
             then
             echo "--- ERROR: Action taking to long. This is not normal. please check the TASK manually. EXIT"
             exit 1
@@ -82,15 +83,17 @@ task_tar_all () {
 }
 
 system_info_dump () {
-    cli -c "show system information | display xml" > $file_path/show_system_information.xml
-    cli -c "show system uptime | display xml" > $file_path/show_system_uptime.xml
+    cli -c "show system information | display xml | no-more" > $file_path/xml/show_system_information.xml
+    cli -c "show system uptime | display xml | no-more" > $file_path/xml/show_system_uptime.xml
+    cli -c "show interfaces extensive | display xml | no-more" > $file_path/xml/show_interfaces_extensive.xml
+    cli -c "show lldp neighbors | display xml | no-more" > $file_path/xml/show_lldp_neighbors.xml
 
-    serialnumber=$(cat $file_path/show_system_information.xml | grep serial-number | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
-    hardwaremodel=$(cat $file_path/show_system_information.xml | grep hardware-model | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
-    osversion=$(cat $file_path/show_system_information.xml | grep os-version | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
-    osname=$(cat $file_path/show_system_information.xml | grep os-name | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
-    uptime=$(cat $file_path/show_system_uptime.xml | grep up-time | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
-    timesource=$(cat $file_path/show_system_uptime.xml | grep time-source | awk -F">" '{print $2}' | awk -F"<" '{print $1}' | sed -e 's/^[[:space:]]*//')
+    serialnumber=$(cat $file_path/xml/show_system_information.xml | grep serial-number | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
+    hardwaremodel=$(cat $file_path/xml/show_system_information.xml | grep hardware-model | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
+    osversion=$(cat $file_path/xml/show_system_information.xml | grep os-version | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
+    osname=$(cat $file_path/xml/show_system_information.xml | grep os-name | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
+    uptime=$(cat $file_path/xml/show_system_uptime.xml | grep up-time | awk -F">" '{print $2}' | awk -F"<" '{print $1}')
+    timesource=$(cat $file_path/xml/show_system_uptime.xml | grep time-source | awk -F">" '{print $2}' | awk -F"<" '{print $1}' | sed -e 's/^[[:space:]]*//')
 }
 
 check_pid () {
@@ -129,9 +132,10 @@ file_path_minus1=${file_path%/*}
 
 rm -r -f $file_path
 mkdir $file_path
+mkdir $file_path/xml
 
-system_info_dump
 echo ">--"
+system_info_dump
 echo "--- Current time:        $date_time | $(date '+%s')"
 echo "--- Local Time Zone:     $(date '+%Z [%z]')"
 echo "--- Time Source:         $timesource"
@@ -155,7 +159,7 @@ do
     if [ $j_ext != ${0##*/} ]
     then
         j_file_noExt=$(echo "$j_ext" | sed -e "s/\.[^.]*$//")
-        a=$(echo "$j_file_noExt" | sed -e "s/^junos_[a-zA-Z0-9-]*_//" -e "s/^evo_[a-zA-Z0-9-]*_//" -e "s/^junos-qfx_[a-zA-Z0-9-]*_//" -e "s/_/ /g")
+        a=$(echo "$j_file_noExt" | sed -e "s/^junos_|junos-qfx_|evo_//" -e "s/_/ /g")
         action="${a} [EXTERNAL]"
         cp $j_ext $file_path/$j_ext
         print_status
@@ -168,7 +172,6 @@ done
 # TASK RSI
 action="Generate RSI"
 print_status
-#sleep 45 &
 cli -c "request support information | save $file_path/RSI_$hostname_$date_time_fname.txt" > $file_path/RSI_command_output_log.log 2>&1 &
 PID=$(echo $!)
 run_background
@@ -176,7 +179,6 @@ run_background
 # TASK TAR Logs
 action="TAR logs from /var/log/"
 print_status
-#sleep 45 &
 cd /var/; tar -zcvf $file_path/LOGS_$hostname_$date_time_fname.tgz log/* > $file_path/LOGS_command_output_log.log 2>&1 &
 PID=$(echo $!)
 run_background

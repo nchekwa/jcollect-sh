@@ -23,23 +23,34 @@ do
 done
 
 exe cprod -A fpc0 -c "show dcbcm ifd all"
-exe cprod -A fpc0 -c "sh shim bridge interface"
+exe cprod -A fpc0 -c "show shim bridge interface"
 exe cprod -A fpc0 -c "show shim virtual bridge-domain"
 exe cprod -A fpc0 -c "show shim virtual bridge-domain detail-all"
 exe cprod -A fpc0 -c "show shim virtual vport"
 exe cprod -A fpc0 -c "show shim virtual vtep-nh"
 exe cprod -A fpc0 -c "show shim virtual vtep"
 exe cprod -A fpc0 -c "show shim virtual snoop_entry"
-exe cprod -A fpc0 -c "sh shim virtual tunnel_nh"
+exe cprod -A fpc0 -c "show shim virtual tunnel_nh"
 exe cprod -A fpc0 -c "show shim virtual error-counters"
+exe cprod -A fpc0 -c 'show shim virtual network_ifd_to_egress_mapping'
  
+exe cprod -A fpc0 -c 'show nhdb all'
+exe cprod -A fpc0 -c 'show nhdb summary'
+exe cprod -A fpc0 -c 'show nhdb type unilist'
+exe cprod -A fpc0 -c 'show nhdb type unicast'
+exe cprod -A fpc0 -c 'show nhdb all extensive'
+
 exe cprod -A fpc0 -c 'set dcb bc "l2 show"'
+exe cprod -A fpc0 -c 'set dcb bc "l2 cache show"'
 exe cprod -A fpc0 -c 'set dcb bc "multicast show"'
 exe cprod -A fpc0 -c 'set dcb bc "l3 multipath show"'
 exe cprod -A fpc0 -c 'set dcb bc "l3 l3table show"'
-exe cprod -A fpc0 -c 'set dcb bc "l3 defip show"'
+exe cprod -A fpc0 -c 'set dcb bc "l3 defip show"'     #large output
 exe cprod -A fpc0 -c 'set dcb bc "l3 egress show"'
- 
+exe cprod -A fpc0 -c 'set dcb bc "l3 intf show"' 
+exe cprod -A fpc0 -c 'set dcb bc "l3 ip6route show"' 
+exe cprod -A fpc0 -c 'set dcb bc "l3 ip6host show"' 
+
 exe cprod -A fpc0 -c 'set dcb bc "d chg L3_ECMP_GROUP"'
 exe cprod -A fpc0 -c 'set dcb bc "d chg L3_ECMP"'
 exe cprod -A fpc0 -c 'set dcb bc "d chg VLAN_XLATE_1_DOUBLE"'
@@ -51,6 +62,38 @@ exe cprod -A fpc0 -c 'set dcb bc "d chg source_vp"'
 exe cprod -A fpc0 -c 'set dcb bc "d chg vfi"'
 exe cprod -A fpc0 -c 'set dcb bc "d chg EGR_DVP_ATTRIBUTE"'
 exe cprod -A fpc0 -c 'set dcb bc "d chg EGR_IP_TUNNEL"'
-exe cprod -A fpc0 -c 'set dcb bc "d chg my_station_tcam_2"'
-exe cprod -A fpc0 -c 'set dcb bc "d chg my_station_tcam"'
+exe cprod -A fpc0 -c 'set dcb bc "d chg MY_STATION_TCAM"'
+exe cprod -A fpc0 -c 'set dcb bc "d chg MY_STATION_TCAM_2"'
 exe cprod -A fpc0 -c 'set dcb bc "d chg mpls_entry_single"'
+
+## run command 6 times (every 10 secends)
+for i in {1..6}; 
+do
+exe cprod -A fpc0 -c 'set dcb bc "show c"' 
+sleep 10
+done
+
+## run command 3 times (every 10 secends)
+for i in {1..3}; 
+do
+exe cprod -A fpc0 -c 'show filter hw all non_zero_only 0'
+exe cprod -A fpc0 -c 'show filter hw all drop non_zero_only 0'
+sleep 10
+done
+
+## run command 6 times (every 10 secends)
+for i in {1..6}; 
+do
+exe cprod -A fpc0 -c 'show hw forwarding-drop-cnt'
+sleep 10
+done
+
+## run command 3 times (every 10 secends)
+for i in {1..3}; 
+do
+exe cprod -A fpc0 -c 'show halp-pkt pkt-stats'
+sleep 10
+done
+
+
+exe cprod -A fpc0 -c 'show syslog messages'

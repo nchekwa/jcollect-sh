@@ -9,15 +9,7 @@ echo ""
 "$@" 
 echo ""; }
 
-
-exe uptime
-exe df -h
-exe df -i
-exe ifconfig -a
-exe ntpq -pn
-exe ntpdc -c "sysstat"
-exe ntpdc -c "sysinfo"
-exe sysctl -a
-exe pciconf -l -v
-exe top -s 5 -d 5 -b -n all
-
+# QoS
+exe cli -c 'show policer detail | no-more'
+exe cli -c 'show class-of-service | no-more'
+exe cli -c 'show class-of-service fabric statistics | no-more'
