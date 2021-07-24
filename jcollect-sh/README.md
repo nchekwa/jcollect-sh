@@ -2,7 +2,7 @@
 Juniper Techsupport Collector
 
 
-![DEMO](img/../jcollect-sh_1.png)
+![DEMO](../img/jcollect-sh_1.png)
 
 
 # About script:
