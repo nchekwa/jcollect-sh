@@ -159,7 +159,7 @@ do
     if [ $j_ext != ${0##*/} ]
     then
         j_file_noExt=$(echo "$j_ext" | sed -e "s/\.[^.]*$//")
-        a=$(echo "$j_file_noExt" | sed -e "s/^junos_|junos-qfx_|evo_//" -e "s/_/ /g")
+        a=$(echo "$j_file_noExt" | sed -e "s/^junos_//;s/^junos-qfx_//;s/^evo_//" -e "s/_/ /g")
         action="${a} [EXTERNAL]"
         cp $j_ext $file_path/$j_ext
         print_status
