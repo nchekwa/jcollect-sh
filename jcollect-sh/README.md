@@ -7,11 +7,11 @@ Juniper Techsupport Collector
 
 # About script:
 Script <strong><em>jcollect-sh-script.sh</em></strong> needs to be run on Juniper device.<br>
+After startin from shell leve - it will collect basic system information to <strong><em>/var/tmp/jcollect</em></strong> folder.
 <ul>
-<li>It will collect basic system information to <strong><em>/var/tmp/jcollect</em></strong> folder.</li>
-<li>It will generate <strong>RSI</strong> (request support information).</li>
-<li>It will archive logs from <strong><em>/var/log</em></strong> folder.</li>
-<li>It will run additional <strong>EXTERNAL scripts</strong> which names starts from junos_*.sh|evo_ *.sh and include output in final TAR archive. <strong>You decide</strong> what additional data you whant to collect.</li>
+<li>generate <strong>RSI</strong> (request support information).</li>
+<li>archive logs from <strong><em>/var/log</em></strong> folder.</li>
+<li>run additional <strong>EXTERNAL scripts</strong> which names starts from <strong>junos_|junos-qfx_|evo_</strong> and include output of this scripts in final TAR archive. <strong>You decide</strong> what additional data you whant to collect. Just inclide .sh file in same folder like where is <strong><em>jcollect-sh-script.sh</em></strong></li>
 </ul>
 <br>
 
@@ -25,8 +25,8 @@ root@leaf001-001-1:RE:0% pwd
 
 root@leaf001-001-1:RE:0% ls -la j*
 -rwxr-xr-x  1 root  wheel  6838 Jul 22 08:47 jcollect-sh-script.sh
--rwxr-xr-x  1 root  wheel  2497 Jul 22 08:47 junos_qfx_PFE_Debug_v1.sh
--rwxr-xr-x  1 root  wheel   478 Jul 22 08:47 junos_qfx_SYSTEM_Logs_v1.sh
+-rwxr-xr-x  1 root  wheel  2497 Jul 22 08:47 junos-qfx_5100_PFE_Debug_v1.sh
+-rwxr-xr-x  1 root  wheel   478 Jul 22 08:47 junos-qfx_5100_SYSTEM_Logs_v1.sh
 
 root@leaf001-001-1:RE:0% sh jcollect-sh-script.sh
 ```
@@ -48,7 +48,7 @@ Example of TGZ content:<br>
 <strong>You decide</strong> what additional data you whant to collect.<bt>
 You can create your own script and put in same directory where you have jcollect-sh-script.sh.<br>
 Your script should have syntax:  <strong>\<junos|junos-qfx|evo\>_\<device-model\>_\<name\>.sh</strong><br>
-Please include print function <strong>exe</strong> on the top of the script. This will function will add additional time stamp and also will include full command inside log file - so that will allow much bettere understand when and what command you include in your script.<br>
+Please include print function <strong>exe</strong> on the top of the script. This function will add additional time stamp and also will include full command inside log file - this will make the file analysis easier.<br>
 
 ```bash
 #!/bin/sh
