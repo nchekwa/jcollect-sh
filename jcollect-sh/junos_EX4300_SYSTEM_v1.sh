@@ -2,9 +2,9 @@
 hostname=$(hostname -s)
 exe() {
 echo ">======================================================================"
+echo "=== $USER@$hostname:~# $@"
 echo -n "=== "; date '+%Y-%m-%d %H:%M:%S %Z [%z] | %s'
 echo "======================================================================="
-echo  "$USER@$hostname:~# $@"
 echo ""
 "$@" 
 echo ""; }
@@ -16,3 +16,5 @@ exe ifsmon -dt
 exe ifsmon -p
 exe ifsmon -kd
 exe nhinfo -ad
+
+

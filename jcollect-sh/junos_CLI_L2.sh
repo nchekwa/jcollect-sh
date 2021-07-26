@@ -2,13 +2,12 @@
 hostname=$(hostname -s)
 exe() {
 echo ">======================================================================"
+echo "=== $USER@$hostname:~# $@"
 echo -n "=== "; date '+%Y-%m-%d %H:%M:%S %Z [%z] | %s'
 echo "======================================================================="
-echo  "$USER@$hostname:~# $@"
 echo ""
 "$@" 
 echo ""; }
-
 
 # L1
 exe cli -c 'show interfaces descriptions extensive | no-more'

@@ -2,9 +2,9 @@
 hostname=$(hostname -s)
 exe() {
 echo ">======================================================================"
+echo "=== $USER@$hostname:~# $@"
 echo -n "=== "; date '+%Y-%m-%d %H:%M:%S %Z [%z] | %s'
 echo "======================================================================="
-echo  "$USER@$hostname:~# $@"
 echo ""
 "$@" 
 echo ""; }
@@ -35,8 +35,8 @@ exe cli -c 'show system processes extensive | no-more'
 exe cli -c 'show system alarm | no-more'
 exe cli -c 'show system processes memory | no-more'  # large output 
 
-## run command 6 times (every 10 secends)
-for i in {1..6}; 
+## run command 6 times (every 10 secends) // 60 sec
+for i in 1 2 3 4 5 6 
 do
 exe cli -c 'show chassis cluster statistics | no-more'
 sleep 10

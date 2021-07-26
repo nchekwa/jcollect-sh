@@ -2,9 +2,9 @@
 hostname=$(hostname -s)
 exe() {
 echo ">======================================================================"
+echo "=== $USER@$hostname:~# $@"
 echo -n "=== "; date '+%Y-%m-%d %H:%M:%S %Z [%z] | %s'
 echo "======================================================================="
-echo  "$USER@$hostname:~# $@"
 echo ""
 "$@" 
 echo ""; }
@@ -14,10 +14,11 @@ for i in `cprod  -A fpc0 -c "show ukern_trace handles" | egrep "^[0-9].* " | awk
 do
    trace_id=${i%:*}
    trace_name=${i#*:}
-   echo ">======================================================================"   
+   echo ">======================================================================"
+   echo  "=== $USER@$hostname:~# cprod -A fpc0 -c \"show ukern_trace $trace_id\"     [$trace_name]"
    echo -n "=== "; date '+%Y-%m-%d %H:%M:%S %Z [%z] | %s'
    echo "======================================================================="
-   echo  "$USER@$hostname:~# cprod -A fpc0 -c \"show ukern_trace $trace_id\"     [$trace_name]"
+   echo ""
    cprod  -A fpc0 -c "show ukern_trace $trace_id"
    echo ""
 done
@@ -66,30 +67,66 @@ exe cprod -A fpc0 -c 'set dcb bc "d chg MY_STATION_TCAM"'
 exe cprod -A fpc0 -c 'set dcb bc "d chg MY_STATION_TCAM_2"'
 exe cprod -A fpc0 -c 'set dcb bc "d chg mpls_entry_single"'
 
-## run command 6 times (every 10 secends)
-for i in {1..6}; 
+
+exe cprod -A fpc0 -c 'set dcb bc "d chg ipmc"'
+exe cprod -A fpc0 -c 'set dcb bc "d chg vlan_xlate"'
+exe cprod -A fpc0 -c 'set dcb bc "d chg egr_vlan_xlate"'
+exe cprod -A fpc0 -c 'set dcb bc "ps"'
+exe cprod -A fpc0 -c 'set dcb bc "vlan show"'
+exe cprod -A fpc0 -c 'set dcb bc "port xe"'
+exe cprod -A fpc0 -c 'set dcb bc "phy info"'
+exe cprod -A fpc0 -c 'set dcb bc "soc"'
+exe cprod -A fpc0 -c 'set dcb bc "fp show"' 
+exe cprod -A fpc0 -c 'set dcb bc "d chg L3_IPMC"' 
+exe cprod -A fpc0 -c 'set dcb bc "ipmc table show"'
+exe cprod -A fpc0 -c 'set dcb bc "multicast show"'
+exe cprod -A fpc0 -c 'set dcb bc "pbmp"' 
+exe cprod -A fpc0 -c 'set dcb bc "d efp_tcam"' 
+exe cprod -A fpc0 -c 'set dcb bc "d efp_policy_table 1 2"' 
+exe cprod -A fpc0 -c 'set dcb bc "list efp_tcam"' 
+exe cprod -A fpc0 -c 'set dcb bc "list efp_policy"' 
+exe cprod -A fpc0 -c 'set dcb bc "list re"' 
+exe cprod -A fpc0 -c 'set dcb bc "d chg EGR_MPLS_VC_AND_SWAP_LABEL_TABLE"'
+exe cprod -A fpc0 -c 'show l2 manager vnid'
+exe cprod -A fpc0 -c 'show l2 manager bridge-domains'
+exe cprod -A fpc0 -c 'show ifd brief'
+exe cprod -A fpc0 -c 'show sfp list'
+exe cprod -A fpc0 -c 'show filter hw all'
+exe cprod -A fpc0 -c 'show filter hw groups'
+exe cprod -A fpc0 -c 'show filter hw fp_slice'
+exe cprod -A fpc0 -c 'show filter counters'
+exe cprod -A fpc0 -c 'show link stats'
+exe cprod -A fpc0 -c 'show ppm adjacencies'
+exe cprod -A fpc0 -c 'show ppm statistics protocol lacp'
+exe cprod -A fpc0 -c 'show threads cpu'
+exe cprod -A fpc0 -c 'show filter counters' 
+exe cprod -A fpc0 -c 'show route ip hw lpm'
+
+
+## run command 6 times (every 10 secends) // 60 sec
+for i in 1 2 3 4 5 6
 do
 exe cprod -A fpc0 -c 'set dcb bc "show c"' 
 sleep 10
 done
 
-## run command 3 times (every 10 secends)
-for i in {1..3}; 
+## run command 6 times (every 10 secends) // 60 sec
+for i in 1 2 3 4 5 6
+do
+exe cprod -A fpc0 -c 'show hw forwarding-drop-cnt'
+sleep 10
+done
+
+## run command 3 times (every 10 secends) // 30 sec
+for i in 1 2 3
 do
 exe cprod -A fpc0 -c 'show filter hw all non_zero_only 0'
 exe cprod -A fpc0 -c 'show filter hw all drop non_zero_only 0'
 sleep 10
 done
 
-## run command 6 times (every 10 secends)
-for i in {1..6}; 
-do
-exe cprod -A fpc0 -c 'show hw forwarding-drop-cnt'
-sleep 10
-done
-
-## run command 3 times (every 10 secends)
-for i in {1..3}; 
+## run command 3 times (every 10 secends) // 30 sec
+for i in 1 2 3
 do
 exe cprod -A fpc0 -c 'show halp-pkt pkt-stats'
 sleep 10

@@ -80,6 +80,10 @@ task_tar_all () {
     mv $file_path_minus1/$new_jcollect_folder_name $file_path
     echo "--- File: $file_path_minus1/$new_jcollect_folder_name.tgz"
     echo "    -or-: $file_path_minus1/jcollect_latest.tgz"
+
+    FILESIZE_B=$(ls -l $file_path_minus1/$new_jcollect_folder_name.tgz | awk '{print $5}')
+    FILEFILE=$(echo "${FILESIZE_B}" | awk '{ split( "B KB MB GB TB PB" , v ); s=1; while( $1>1024 ){ $1/=1024; s++ } printf "%.2f %s", $1, v[s] }')
+    echo "--- Size: $FILEFILE"
 }
 
 system_info_dump () {
@@ -134,8 +138,9 @@ rm -r -f $file_path
 mkdir $file_path
 mkdir $file_path/xml
 
-echo ">--"
+echo ">-- Collect basic data... "
 system_info_dump
+echo "---"
 echo "--- Current time:        $date_time | $(date '+%s')"
 echo "--- Local Time Zone:     $(date '+%Z [%z]')"
 echo "--- Time Source:         $timesource"
@@ -176,6 +181,11 @@ cli -c "request support information | save $file_path/RSI_$hostname_$date_time_f
 PID=$(echo $!)
 run_background
 
+# Include JCollect Log Unpacking script
+if [ -e jcollect-log-unpacking.py ]
+  then
+  mv jcollect-log-unpacking.py /var/log/
+fi
 # TASK TAR Logs
 action="TAR logs from /var/log/"
 print_status
@@ -188,5 +198,6 @@ task_tar_all
 # =================================================================================================
 # =================================================================================================
 # =================================================================================================
+rm -f /var/log/jcollect-log-unpacking.py 
 echo "--- ALL DONE!"
 rm -f $PIDFILE
