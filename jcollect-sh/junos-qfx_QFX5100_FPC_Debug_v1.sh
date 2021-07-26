@@ -23,6 +23,14 @@ do
    echo ""
 done
 
+
+exe cprod -A fpc0 -c "show ifd brief"
+exe cprod -A fpc0 -c "show ifl brief"
+exe cprod -A fpc0 -c 'show bridge-domain'
+exe cprod -A fpc0 -c 'show pfe-shared-mem ifd_vlan_token-->ifl'
+exe cprod -A fpc0 -c 'show pfe-shared-mem ifd_vlan_tag-->ifl'
+exe cprod -A fpc0 -c 'show pfe-shared-mem ifd_vlan_tag-->vlan_token'
+
 exe cprod -A fpc0 -c "show dcbcm ifd all"
 exe cprod -A fpc0 -c "show shim bridge interface"
 exe cprod -A fpc0 -c "show shim virtual bridge-domain"
