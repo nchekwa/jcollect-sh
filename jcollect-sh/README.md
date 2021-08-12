@@ -9,7 +9,7 @@ Juniper Techsupport Collector
 Script <strong><em>jcollect-sh-script.sh</em></strong> needs to be run on Juniper device.<br>
 After start from the shell level - it will collect basic system informations to <strong><em>/var/tmp/jcollect</em></strong> folder.
 <ul>
-<li>generate <strong>RSI</strong> (request support information).</li>
+<li>it will generate <strong>RSI</strong> (<strong>R</strong>equest <strong>S</strong>upport <strong>I</strong>nformation).</li>
 <li>archive logs from <strong><em>/var/log</em></strong> folder</li>
 <li>run additional <strong>EXTERNAL scripts</strong> which names starts from <strong>junos_|junos-qfx_|evo_</strong> and include output of this scripts in final TAR archive. <strong>You decide</strong> what additional data you whant to collect. Just inclide .sh file in same folder like where is <strong><em>jcollect-sh-script.sh</em></strong></li>
 </ul>
