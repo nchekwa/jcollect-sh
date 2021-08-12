@@ -13,7 +13,7 @@ echo ""; }
 exe cli -c 'show chassis alarms | no-more'
 
 exe cli -c 'show chassis hardware detail | no-more'
-exe cli -c 'show chassis routing-engine | no-more'
+
 exe cli -c 'show chassis fpc | no-more'
 exe cli -c 'show chassis fpc detail | no-more'
 
@@ -32,3 +32,10 @@ exe cli -c 'show chassis fabric fpcs | no-more'
 exe cli -c 'show chassis fabric plane | no-more'
 exe cli -c 'show chassis fabric destinations | no-more'
 exe cli -c 'show chassis fabric reachability | no-more'
+
+## run command 6 times (every 10 secends)   // 60 sec
+for i in 1 2 3 4 5 6 
+do
+exe cli -c 'show chassis routing-engine | no-more'
+sleep 10
+done
