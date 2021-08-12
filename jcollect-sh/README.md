@@ -7,7 +7,7 @@ Juniper Techsupport Collector
 
 ## About script
 Script <strong><em>jcollect-sh-script.sh</em></strong> needs to be run on Juniper device.<br>
-After startin from shell leve - it will collect basic system information to <strong><em>/var/tmp/jcollect</em></strong> folder.
+After start from the shell level - it will collect basic system informations to <strong><em>/var/tmp/jcollect</em></strong> folder.
 <ul>
 <li>generate <strong>RSI</strong> (request support information).</li>
 <li>archive logs from <strong><em>/var/log</em></strong> folder</li>
@@ -116,9 +116,9 @@ ls
 > RSI_20210726T003146_1627259506.txt  RSI_command_output_log.log  junos_CLI_BGP.log  junos_CLI_BGP.sh  log  xml
 ```
 
-## JCollect Log Unpacking
-If you put on Juniper device also "jcollect-log-unpacking.py" togethere with <strong>jcollect-sh</strong> - <strong>log-unpacking</strong> file will be included in Archve LOGS TGZ file. <br>
-When you decomress LOGS TGZ file, use this file on your local device to unpack all <strong>*.gz</strong>. <br>
+## ADDON - JCollect Log Unpacking
+If you put on Juniper device also "jcollect-log-unpacking.py" togethere with <strong>jcollect-sh</strong> - this python script will be included in Archve LOGS TGZ file. <br>
+When you decomress LOGS TGZ file, you can use this file on your local device to unpack all <strong>*.gz</strong>. <br>
 This script will also create ie. <strong>messages_merge</strong> which will include all <strong>messeges\*</strong> files merge in the correct chronology. <br>
 
 ```console
