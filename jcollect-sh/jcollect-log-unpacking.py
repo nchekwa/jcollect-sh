@@ -3,6 +3,8 @@
 #
 # Name: jcollect-log-unpacking.py
 # Version: v0.3 [2021-07-24] - First release
+# Version: v0.4 [2021-08-26] - Resolve problem with files like ie. op-script.log.0.gz
+#                            - Resolve problem with UnicodeDecodeError: 'utf-8' codec can't decode byte
 #
 # Copyright 2021 Artur Zdolinski
 #
@@ -59,10 +61,12 @@ def main():
     file_for_decompress = list()
     for filename in gzFfiles:
         print(">-- log: "+filename+"* ---")
-        files_to_merge = [filename]
+        files_to_merge = [filename, filename+".log"]
         for fn in path:
             if fn.endswith(".gz") and  fn.startswith(filename):
-                file = fn.split(".")
+                file = fn.rsplit('.', 1)
+                gz_file_name    = file[0]
+                file = gz_file_name.rsplit('.', 1)
                 gz_file_name    = file[0]
                 gz_file_id      = file[1]
                 
@@ -85,12 +89,13 @@ def main():
             print("|-- MERGE TO: "+files_to_merge[0]+"_merge")
             files_to_merge.sort()
             for fname in list(reversed(files_to_merge)) :
-                if os.path.getsize(fname) != 0:
-                    fsize = os.path.getsize(fname)
-                    print(" |-- FILE: "+ fname+" SIZE: "+human_readable_size(fsize)+"  ["+str(fsize)+"]" )
-                    with open("./"+fname) as infile:
-                        for line in infile:
-                            outfile.write(line)
+                if os.path.isfile(fname):
+                    if os.path.getsize(fname) != 0:
+                        fsize = os.path.getsize(fname)
+                        print(" |-- FILE: "+ fname+" SIZE: "+human_readable_size(fsize)+"  ["+str(fsize)+"]" )
+                        with open("./"+fname, encoding='utf-8', errors='ignore') as infile:
+                            for line in infile:
+                                outfile.write(line)
         print("----------------------------------------------------------------------------------------------------")
         print("\n")
                 
