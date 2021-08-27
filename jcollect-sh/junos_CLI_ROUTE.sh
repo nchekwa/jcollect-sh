@@ -10,13 +10,15 @@ echo ""
 echo ""; }
 
 # Route
-exe cli -c 'show route table inet.3 | no-more'
-exe cli -c 'show route table inet.3 extensive | no-more'
 exe cli -c 'show route summary | no-more'
+exe cli -c 'show route all | no-more'
+
 exe cli -c 'show route next-hop database | no-more'
+exe cli -c 'show route nh-detail | no-more'
 exe cli -c 'show route resolution unresolved | no-more'
 exe cli -c 'show route hidden | no-more'
 exe cli -c 'show route damping | no-more'
+exe cli -c 'show route forwarding-table | no-more'
 
 exe cli -c 'show route protocol direct all extensive | no-more'
 exe cli -c 'show route protocol local all extensive | no-more'
