@@ -24,6 +24,14 @@ do
 done
 
 
+## run command 6 times (every 10 secends)   // 60 sec
+for i in 1 2 3 4 5 6 
+do
+exe cli -c 'show pfe statistics traffic | no-more'
+exe cli -c 'show pfe statistics traffic protocol bfd | no-more'
+sleep 10
+done
+
 exe cprod -A fpc0 -c "show ifd brief"
 exe cprod -A fpc0 -c "show ifl brief"
 exe cprod -A fpc0 -c 'show bridge-domain'
@@ -140,5 +148,6 @@ exe cprod -A fpc0 -c 'show halp-pkt pkt-stats'
 sleep 10
 done
 
-
 exe cprod -A fpc0 -c 'show syslog messages'
+
+

@@ -8,13 +8,8 @@ echo "======================================================================="
 echo ""
 "$@" 
 echo ""; }
-                             
 
-## run command 6 times (every 10 secends)   // 60 sec
-for i in 1 2 3 4 5 6 
-do
-exe cli -c 'show pfe statistics traffic | no-more'
-exe cli -c 'show pfe statistics traffic protocol bfd | no-more'
-sleep 10
-done
+# CONFIG
+exe cli -c 'show configuration | no-more'
+exe cli -c 'show configuration | display set | no-more'
 
