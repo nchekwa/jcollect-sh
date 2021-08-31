@@ -16,7 +16,7 @@ exe cli -c 'show interfaces diagnostics optics | no-more'
 exe cli -c 'show interfaces extensive | no-more'
 
 # ARP
-exe cli -c 'show arp no-resolve state | no-more'
+exe cli -c 'show arp no-resolve expiration-time state | no-more'
 exe cli -c 'show ethernet-switching table | no-more'
 exe cli -c 'show ethernet-switching table extensive | no-more'
 exe cli -c 'show ethernet-switching table persistent-learning | no-more'
