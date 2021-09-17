@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 #
 # Name: jcollect-log-unpacking.py
-# Version: v0.3 [2021-07-24] - First release
-# Version: v0.4 [2021-08-26] - Resolve problem with files like ie. op-script.log.0.gz
-#                            - Resolve problem with UnicodeDecodeError: 'utf-8' codec can't decode byte
-#
+# Version: v0.3  [2021-07-24] - First release
+# Version: v0.4  [2021-08-26] - Resolve problem with files like ie. op-script.log.0.gz
+#                             - Resolve problem with UnicodeDecodeError: 'utf-8' codec can't decode byte
+# Version: v0.4a [2021-09-17] - Resolve problem BadGzipFile('Not a gzipped file (%r)' % magic)
+
 # Copyright 2021 Artur Zdolinski
 #
 # This program is free software: you can redistribute it and/or modify
@@ -31,7 +32,15 @@ def gunzip(source_filepath, dest_filepath, block_size=65536):
     with gzip.open(source_filepath, 'rb') as s_file, \
             open(dest_filepath, 'wb') as d_file:
         while True:
-            block = s_file.read(block_size)
+            try:
+                block = s_file.read(block_size)
+            except OSError:
+                print('input_file is not a valid gzip file by OSError')
+                break
+            except gzip.BadGzipFile:
+                print('input_file is not a valid gzip file by BadGzipFile')
+                break
+            
             if not block:
                 break
             else:

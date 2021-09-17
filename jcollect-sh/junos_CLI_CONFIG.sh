@@ -12,4 +12,4 @@ echo ""; }
 # CONFIG
 exe cli -c 'show configuration | no-more'
 exe cli -c 'show configuration | display set | no-more'
-
+exe cli -c 'show configuration | display inheritance | no-more'

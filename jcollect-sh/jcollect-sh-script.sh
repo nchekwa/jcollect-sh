@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Name: jcollect-run-script.sh
+# Name: jcollect-sh-script.sh
 # Version: 0.2 [2021-07-24]
 #
 # Copyright 2021 Artur Zdolinski
