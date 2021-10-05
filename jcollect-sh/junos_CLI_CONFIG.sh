@@ -10,6 +10,6 @@ echo ""
 echo ""; }
 
 # CONFIG
-exe cli -c 'show configuration | no-more'
-exe cli -c 'show configuration | display set | no-more'
-exe cli -c 'show configuration | display inheritance | no-more'
+exe cli -c 'show configuration | display omit | except SECRET-DATA | no-more'
+exe cli -c 'show configuration | display omit | except SECRET-DATA | display set | no-more'
+exe cli -c 'show configuration | display omit | display inheritance | except SECRET-DATA | no-more'
