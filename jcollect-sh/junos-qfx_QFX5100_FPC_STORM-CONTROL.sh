@@ -49,4 +49,6 @@ exe cprod -A fpc0 -c 'set dcb bc "d chg FP_STORM_CONTROL_METERS_Y"'
 exe cprod -A fpc0 -c 'set dcb bc "g chg STORM_CONTROL_METER_CONFIG"'
 exe cprod -A fpc0 -c 'set dcb bc "g chg STORM_CONTROL_METER_MAPPING"'
 
+exe cprod -A fpc0 -c 'set dcbc bcm "d port 1 CML_FLAGS_MOVE"'
+
 exe cprod -A fpc0 -c 'show syslog messages'
