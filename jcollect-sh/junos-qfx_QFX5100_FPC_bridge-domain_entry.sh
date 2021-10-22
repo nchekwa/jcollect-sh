@@ -15,10 +15,10 @@ do
    bd_name=${i%:*}
    bd_index=${i#*:}
    echo ">======================================================================"
-   echo  "=== $USER@$hostname:~# cprod -A fpc0 -c \"show bridge-domain entry $bd_index ifbd all\"     [$bd_name]"
+   echo  "=== $USER@$hostname:~# cprod -A fpc0 -c \"show bridge-domain entry 0x$bd_index ifbd all\"     [$bd_name]"
    echo -n "=== "; date '+%Y-%m-%d %H:%M:%S %Z [%z] | %s'
    echo "======================================================================="
    echo ""
-   cprod -A fpc0 -c "show bridge-domain entry $bd_index ifbd all"
+   cprod -A fpc0 -c "show bridge-domain entry 0x$bd_index ifbd all"
    echo ""
 done
