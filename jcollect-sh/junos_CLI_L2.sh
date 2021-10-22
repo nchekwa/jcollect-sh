@@ -22,3 +22,11 @@ exe cli -c 'show ethernet-switching table extensive | no-more'
 exe cli -c 'show ethernet-switching table persistent-learning | no-more'
 exe cli -c 'show ethernet-switching flood extensive | no-more'
 
+# LACP
+exe cli -c 'show lacp interfaces | no-more'
+exe cli -c 'show lacp interfaces extensive | no-more'
+exe cli -c 'show lacp timeouts | no-more'
+
+# VLAN
+exe cli -c 'show vlans | no-more'
+exe cli -c 'show vlans extensive | no-more'
