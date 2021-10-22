@@ -14,6 +14,7 @@ exe cli -c 'show interfaces descriptions extensive | no-more'
 exe cli -c 'show interfaces terse | no-more'
 exe cli -c 'show interfaces diagnostics optics | no-more'
 exe cli -c 'show interfaces extensive | no-more'
+exe cli -c 'show interfaces mc-ae extensive | no-more'
 
 # ARP
 exe cli -c 'show arp no-resolve expiration-time state | no-more'
