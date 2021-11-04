@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
 #
 # Name: jcollect-log-unpacking.py
-# Version: v0.3  [2021-07-24] - First release
+# Version: v0.5  [2021-11-04] - Fix error when file was not UTF-8 
+#                             - Fix problem with list file like dcd* match aso dcd_commit (change to list files <filename*> -> <filename.*>)
+# Version: v0.4a [2021-09-17] - Resolve problem BadGzipFile('Not a gzipped file (%r)' % magic)
 # Version: v0.4  [2021-08-26] - Resolve problem with files like ie. op-script.log.0.gz
 #                             - Resolve problem with UnicodeDecodeError: 'utf-8' codec can't decode byte
-# Version: v0.4a [2021-09-17] - Resolve problem BadGzipFile('Not a gzipped file (%r)' % magic)
-
+# Version: v0.3  [2021-07-24] - First release
+#
+#
 # Copyright 2021 Artur Zdolinski
 #
 # This program is free software: you can redistribute it and/or modify
@@ -65,14 +68,13 @@ def main():
             files_compressed.append(filenamepart[0])
     gzFfiles = list(dict.fromkeys(files_compressed))
 
-
     # Decompress and merge files
     file_for_decompress = list()
     for filename in gzFfiles:
-        print(">-- log: "+filename+"* ---")
+        print(">-- log: "+filename+".* ---")
         files_to_merge = [filename, filename+".log"]
         for fn in path:
-            if fn.endswith(".gz") and  fn.startswith(filename):
+            if fn.endswith(".gz") and  fn.startswith(filename+"."):
                 file = fn.rsplit('.', 1)
                 gz_file_name    = file[0]
                 file = gz_file_name.rsplit('.', 1)
@@ -87,12 +89,7 @@ def main():
                 files_to_merge.append(txt_file)
                 os.remove("./"+gz_file)
                 print("|-- REMOVE: "+gz_file)
-        
-        # Skip merge wtmp file as it is not text file
-        if files_to_merge[0] == "wtmp":
-            print("\n")
-            continue
-        
+                
         # Marge TXT files into one
         with open(files_to_merge[0]+"_merge", 'w') as outfile:
             print("|-- MERGE TO: "+files_to_merge[0]+"_merge")
@@ -101,10 +98,25 @@ def main():
                 if os.path.isfile(fname):
                     if os.path.getsize(fname) != 0:
                         fsize = os.path.getsize(fname)
-                        print(" |-- FILE: "+ fname+" SIZE: "+human_readable_size(fsize)+"  ["+str(fsize)+"]" )
+                        
+                        try:
+                            f = open(fname, "r", encoding="utf8")
+                            data = f.read()
+                            data.encode().decode('utf-8')
+                        except UnicodeDecodeError:
+                            # Not UTF-8.  SKIP
+                            print(" |x- FILE: "+fname+" SIZE: "+human_readable_size(fsize)+" - is not UTF-8 - SKIP" )
+                            continue
+                        except Exception as exception:
+                            print(" |x- Exception message: {}".format(exception))
+                            continue
+                            
+                        print(" |-- FILE: "+fname+" SIZE: "+human_readable_size(fsize)+"  ["+str(fsize)+"]" )
                         with open("./"+fname, encoding='utf-8', errors='ignore') as infile:
                             for line in infile:
                                 outfile.write(line)
+                    else:
+                        print(" |x- FILE: "+fname+" SIZE: "+human_readable_size(fsize)+" - SIZE: 0 -> SKIP" )
         print("----------------------------------------------------------------------------------------------------")
         print("\n")
                 
