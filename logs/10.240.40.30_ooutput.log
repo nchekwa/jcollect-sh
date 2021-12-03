@@ -1,0 +1,365 @@
+Junos PYEZ - Connecting to device...
+[host None session 0x7fc7e2beeca0] <SSHSession(session, initial daemon)> created: client_capabilities=<dict_keyiterator object at 0x7fc7e2c083b0>
+starting thread (client mode): 0xe1b6e760
+Local version/idstring: SSH-2.0-paramiko_2.8.1
+Remote version/idstring: SSH-2.0-OpenSSH_7.5
+Connected (version 2.0, client OpenSSH_7.5)
+kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+Kex agreed: curve25519-sha256@libssh.org
+HostKey agreed: ssh-ed25519
+Cipher agreed: aes128-ctr
+MAC agreed: hmac-sha2-256
+Compression agreed: none
+EOF in transport thread
+kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+Switch to new keys ...
+userauth is OK
+Authentication (password) successful!
+[chan 0] Max packet in: 32768 bytes
+Received global request "hostkeys-00@openssh.com"
+Rejecting "hostkeys-00@openssh.com" global request from server.
+[chan 0] Max packet out: 32768 bytes
+Secsh channel 0 opened.
+[chan netconf-subsystem-0] Sesch channel 0 request ok
+[host 10.240.40.30 session 0x7fc7e2beeca0] installing listener <ncclient.transport.session.NotificationHandler object at 0x7fc7e1b7bd90>
+[host 10.240.40.30 session 0x7fc7e2beeca0] installing listener <ncclient.transport.session.HelloHandler object at 0x7fc7e1b7bd30>
+[host 10.240.40.30 session 0x7fc7e2beeca0] queueing <?xml version="1.0" encoding="UTF-8"?><nc:hello xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0"><nc:capabilities><nc:capability>urn:ietf:params:netconf:base:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:base:1.1</nc:capability><nc:capability>urn:ietf:params:netconf:capability:writable-running:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:candidate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:rollback-on-error:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:startup:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file,https,sftp</nc:capability><nc:capability>urn:ietf:params:netconf:capability:validate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:xpath:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:notification:1.0</nc:capability><nc:capability>urn:liberouter:params:netconf:capability:power-control:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:interleave:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:with-defaults:1.0</nc:capability></nc:capabilities></nc:hello>
+[host 10.240.40.30 session 0x7fc7e2beeca0] starting main loop
+[host 10.240.40.30 session 0x7fc7e2beeca0] selector type = EpollSelector
+[host 10.240.40.30 session 0x7fc7e2beeca0] Sending message
+[host 10.240.40.30 session 0x7fc7e2beeca0] Sending:
+<?xml version="1.0" encoding="UTF-8"?><nc:hello xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0"><nc:capabilities><nc:capability>urn:ietf:params:netconf:base:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:base:1.1</nc:capability><nc:capability>urn:ietf:params:netconf:capability:writable-running:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:candidate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:rollback-on-error:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:startup:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file,https,sftp</nc:capability><nc:capability>urn:ietf:params:netconf:capability:validate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:xpath:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:notification:1.0</nc:capability><nc:capability>urn:liberouter:params:netconf:capability:power-control:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:interleave:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:with-defaults:1.0</nc:capability></nc:capabilities></nc:hello>]]>]]>
+[host 10.240.40.30 session 0x7fc7e2beeca0] parsing netconf v1.0
+[host 10.240.40.30 session 0x7fc7e2beeca0] parsing netconf v1.0
+[host 10.240.40.30 session 0x7fc7e2beeca0] parsing netconf v1.0
+[host 10.240.40.30 session 0x7fc7e2beeca0] parsing netconf v1.0
+[host 10.240.40.30 session 0x7fc7e2beeca0] parsing netconf v1.0
+[host 10.240.40.30 session 0x7fc7e2beeca0] parsing netconf v1.0
+[host 10.240.40.30 session 0x7fc7e2beeca0] Received message from host
+[host 10.240.40.30 session 0x7fc7e2beeca0] Received:
+<!-- No zombies were killed during the creation of this user interface -->
+<!-- user root, class super-user -->
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <capabilities>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring</capability>
+    <capability>http://xml.juniper.net/netconf/junos/1.0</capability>
+    <capability>http://xml.juniper.net/dmi/system/1.0</capability>
+  </capabilities>
+  <session-id>3645</session-id>
+</hello>
+[host 10.240.40.30 session 0x7fc7e2beeca0] dispatching message to different listeners: <!-- No zombies were killed during the creation of this user interface -->
+<!-- user root, class super-user -->
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <capabilities>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring</capability>
+    <capability>http://xml.juniper.net/netconf/junos/1.0</capability>
+    <capability>http://xml.juniper.net/dmi/system/1.0</capability>
+  </capabilities>
+  <session-id>3645</session-id>
+</hello>
+[host 10.240.40.30 session 0x7fc7e2beeca0] dispatching message to listener: <ncclient.transport.session.NotificationHandler object at 0x7fc7e1b7bd90>
+[host 10.240.40.30 session 0x7fc7e2beeca0] dispatching message to listener: <ncclient.transport.session.HelloHandler object at 0x7fc7e1b7bd30>
+[host 10.240.40.30 session-id 3645] discarding listener <ncclient.transport.session.HelloHandler object at 0x7fc7e1b7bd30>
+[host 10.240.40.30 session-id 3645] initialized: session-id=3645 | server_capabilities=<dict_keyiterator object at 0x7fc7e2c083b0>
+[host 10.240.40.30 session-id 3645] installing listener <jnpr.junos.device.DeviceSessionListener object at 0x7fc7e1b6e4f0>
+Create /var/tmp/j/
+starting thread (client mode): 0xe1b7bdc0
+Local version/idstring: SSH-2.0-paramiko_2.8.1
+Remote version/idstring: SSH-2.0-OpenSSH_7.5
+Connected (version 2.0, client OpenSSH_7.5)
+kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+Kex agreed: curve25519-sha256@libssh.org
+HostKey agreed: ssh-ed25519
+Cipher agreed: aes128-ctr
+MAC agreed: hmac-sha2-256
+Compression agreed: none
+kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+Switch to new keys ...
+Adding ssh-ed25519 host key for 10.240.40.30: b'f725852eb0cbbdd041b6e88d33c33e9e'
+userauth is OK
+Authentication (password) successful!
+[chan 0] Max packet in: 32768 bytes
+Received global request "hostkeys-00@openssh.com"
+Rejecting "hostkeys-00@openssh.com" global request from server.
+[chan 0] Max packet out: 32768 bytes
+Secsh channel 0 opened.
+[chan 0] Sesch channel 0 request ok
+[chan 0] Sesch channel 0 request ok
+[chan 0] EOF sent (0)
+starting thread (client mode): 0xe1b8ecd0
+Local version/idstring: SSH-2.0-paramiko_2.8.1
+Remote version/idstring: SSH-2.0-OpenSSH_7.5
+Connected (version 2.0, client OpenSSH_7.5)
+kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+Kex agreed: curve25519-sha256@libssh.org
+HostKey agreed: ssh-ed25519
+Cipher agreed: aes128-ctr
+MAC agreed: hmac-sha2-256
+Compression agreed: none
+kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+Switch to new keys ...
+Adding ssh-ed25519 host key for 10.240.40.30: b'f725852eb0cbbdd041b6e88d33c33e9e'
+EOF in transport thread
+userauth is OK
+Authentication (password) successful!
+[chan 0] Max packet in: 32768 bytes
+Received global request "hostkeys-00@openssh.com"
+Rejecting "hostkeys-00@openssh.com" global request from server.
+[chan 0] Max packet out: 32768 bytes
+Secsh channel 0 opened.
+[chan 0] Sesch channel 0 request ok
+[chan 0] Sesch channel 0 request ok
+[chan 0] EOF sent (0)
+starting thread (client mode): 0xe1b993d0
+Local version/idstring: SSH-2.0-paramiko_2.8.1
+Remote version/idstring: SSH-2.0-OpenSSH_7.5
+Connected (version 2.0, client OpenSSH_7.5)
+kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+Kex agreed: curve25519-sha256@libssh.org
+HostKey agreed: ssh-ed25519
+Cipher agreed: aes128-ctr
+MAC agreed: hmac-sha2-256
+Compression agreed: none
+EOF in transport thread
+kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+Switch to new keys ...
+Adding ssh-ed25519 host key for 10.240.40.30: b'f725852eb0cbbdd041b6e88d33c33e9e'
+userauth is OK
+Authentication (password) successful!
+[chan 0] Max packet in: 32768 bytes
+Received global request "hostkeys-00@openssh.com"
+Rejecting "hostkeys-00@openssh.com" global request from server.
+[chan 0] Max packet out: 32768 bytes
+Secsh channel 0 opened.
+[chan 0] Sesch channel 0 request ok
+[chan 0] EOF sent (0)
+[host 10.240.40.30 session-id 3645] installing listener <ncclient.operations.rpc.RPCReplyListener object at 0x7fc7e1b86dc0>
+[host 10.240.40.30 session-id 3645] Requesting 'CloseSession'
+[host 10.240.40.30 session-id 3645] queueing <?xml version="1.0" encoding="UTF-8"?><nc:rpc xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:271e7b47-5c36-43eb-ad5b-b36df5c92ffd"><nc:close-session/></nc:rpc>
+EOF in transport thread
+[host 10.240.40.30 session-id 3645] Sync request, will wait for timeout=30
+[host 10.240.40.30 session-id 3645] Sending message
+[host 10.240.40.30 session-id 3645] Sending:
+<?xml version="1.0" encoding="UTF-8"?><nc:rpc xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:271e7b47-5c36-43eb-ad5b-b36df5c92ffd"><nc:close-session/></nc:rpc>]]>]]>
+[host 10.240.40.30 session-id 3645] parsing netconf v1.0
+[host 10.240.40.30 session-id 3645] Received message from host
+[host 10.240.40.30 session-id 3645] Received:
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/21.2R0/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:271e7b47-5c36-43eb-ad5b-b36df5c92ffd">
+<ok/>
+</rpc-reply>
+[host 10.240.40.30 session-id 3645] dispatching message to different listeners: <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/21.2R0/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:271e7b47-5c36-43eb-ad5b-b36df5c92ffd">
+<ok/>
+</rpc-reply>
+[host 10.240.40.30 session-id 3645] dispatching message to listener: <ncclient.transport.session.NotificationHandler object at 0x7fc7e1b7bd90>
+[host 10.240.40.30 session-id 3645] dispatching message to listener: <ncclient.operations.rpc.RPCReplyListener object at 0x7fc7e1b86dc0>
+[host 10.240.40.30 session-id 3645] Delivering to <ncclient.operations.session.CloseSession object at 0x7fc7e1b6e6d0>
+[host 10.240.40.30 session-id 3645] dispatching message to listener: <jnpr.junos.device.DeviceSessionListener object at 0x7fc7e1b6e4f0>
+[host 10.240.40.30 session-id 3645] parsing netconf v1.0
+[chan netconf-subsystem-0] EOF received (netconf-subsystem-0)
+[chan netconf-subsystem-0] EOF sent (netconf-subsystem-0)
+[host 10.240.40.30 session-id 3645] Broke out of main loop, error=SessionCloseError("Unexpected session close\nIN_BUFFER: `b'<!-- session end at 2021-11-30 19:46:46 UTC -->\\n'`")
+[host 10.240.40.30 session-id 3645] dispatching error to <ncclient.transport.session.NotificationHandler object at 0x7fc7e1b7bd90>
+[host 10.240.40.30 session-id 3645] dispatching error to <ncclient.operations.rpc.RPCReplyListener object at 0x7fc7e1b86dc0>
+[host 10.240.40.30 session-id 3645] dispatching error to <jnpr.junos.device.DeviceSessionListener object at 0x7fc7e1b6e4f0>
+Junos PYEZ - Connecting to device...
+[host None session 0x7fc7e1b869d0] <SSHSession(session, initial daemon)> created: client_capabilities=<dict_keyiterator object at 0x7fc7e1ba8090>
+starting thread (client mode): 0xe1b8e7f0
+Local version/idstring: SSH-2.0-paramiko_2.8.1
+Remote version/idstring: SSH-2.0-OpenSSH_7.5
+Connected (version 2.0, client OpenSSH_7.5)
+kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+Kex agreed: curve25519-sha256@libssh.org
+HostKey agreed: ssh-ed25519
+Cipher agreed: aes128-ctr
+MAC agreed: hmac-sha2-256
+Compression agreed: none
+EOF in transport thread
+kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+Switch to new keys ...
+userauth is OK
+Authentication (password) successful!
+[chan 0] Max packet in: 32768 bytes
+Received global request "hostkeys-00@openssh.com"
+Rejecting "hostkeys-00@openssh.com" global request from server.
+[chan 0] Max packet out: 32768 bytes
+Secsh channel 0 opened.
+[chan netconf-subsystem-0] Sesch channel 0 request ok
+[host 10.240.40.31 session 0x7fc7e1b869d0] installing listener <ncclient.transport.session.NotificationHandler object at 0x7fc7e1b93fd0>
+[host 10.240.40.31 session 0x7fc7e1b869d0] installing listener <ncclient.transport.session.HelloHandler object at 0x7fc7e1b93220>
+[host 10.240.40.31 session 0x7fc7e1b869d0] queueing <?xml version="1.0" encoding="UTF-8"?><nc:hello xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0"><nc:capabilities><nc:capability>urn:ietf:params:netconf:base:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:base:1.1</nc:capability><nc:capability>urn:ietf:params:netconf:capability:writable-running:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:candidate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:rollback-on-error:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:startup:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file,https,sftp</nc:capability><nc:capability>urn:ietf:params:netconf:capability:validate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:xpath:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:notification:1.0</nc:capability><nc:capability>urn:liberouter:params:netconf:capability:power-control:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:interleave:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:with-defaults:1.0</nc:capability></nc:capabilities></nc:hello>
+[host 10.240.40.31 session 0x7fc7e1b869d0] starting main loop
+[host 10.240.40.31 session 0x7fc7e1b869d0] selector type = EpollSelector
+[host 10.240.40.31 session 0x7fc7e1b869d0] Sending message
+[host 10.240.40.31 session 0x7fc7e1b869d0] Sending:
+<?xml version="1.0" encoding="UTF-8"?><nc:hello xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0"><nc:capabilities><nc:capability>urn:ietf:params:netconf:base:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:base:1.1</nc:capability><nc:capability>urn:ietf:params:netconf:capability:writable-running:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:candidate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:rollback-on-error:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:startup:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file,https,sftp</nc:capability><nc:capability>urn:ietf:params:netconf:capability:validate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:xpath:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:notification:1.0</nc:capability><nc:capability>urn:liberouter:params:netconf:capability:power-control:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:interleave:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:with-defaults:1.0</nc:capability></nc:capabilities></nc:hello>]]>]]>
+[host 10.240.40.31 session 0x7fc7e1b869d0] parsing netconf v1.0
+[host 10.240.40.31 session 0x7fc7e1b869d0] parsing netconf v1.0
+[host 10.240.40.31 session 0x7fc7e1b869d0] parsing netconf v1.0
+[host 10.240.40.31 session 0x7fc7e1b869d0] parsing netconf v1.0
+[host 10.240.40.31 session 0x7fc7e1b869d0] Received message from host
+[host 10.240.40.31 session 0x7fc7e1b869d0] Received:
+<!-- No zombies were killed during the creation of this user interface -->
+<!-- user root, class super-user -->
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <capabilities>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring</capability>
+    <capability>http://xml.juniper.net/netconf/junos/1.0</capability>
+    <capability>http://xml.juniper.net/dmi/system/1.0</capability>
+  </capabilities>
+  <session-id>3410</session-id>
+</hello>
+[host 10.240.40.31 session 0x7fc7e1b869d0] dispatching message to different listeners: <!-- No zombies were killed during the creation of this user interface -->
+<!-- user root, class super-user -->
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <capabilities>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring</capability>
+    <capability>http://xml.juniper.net/netconf/junos/1.0</capability>
+    <capability>http://xml.juniper.net/dmi/system/1.0</capability>
+  </capabilities>
+  <session-id>3410</session-id>
+</hello>
+[host 10.240.40.31 session 0x7fc7e1b869d0] dispatching message to listener: <ncclient.transport.session.HelloHandler object at 0x7fc7e1b93220>
+[host 10.240.40.31 session-id 3410] dispatching message to listener: <ncclient.transport.session.NotificationHandler object at 0x7fc7e1b93fd0>
+[host 10.240.40.31 session-id 3410] discarding listener <ncclient.transport.session.HelloHandler object at 0x7fc7e1b93220>
+[host 10.240.40.31 session-id 3410] initialized: session-id=3410 | server_capabilities=<dict_keyiterator object at 0x7fc7e1ba8090>
+[host 10.240.40.31 session-id 3410] installing listener <jnpr.junos.device.DeviceSessionListener object at 0x7fc7e1b8e4f0>
+Create /var/tmp/j/
+starting thread (client mode): 0xe1b9ecd0
+Local version/idstring: SSH-2.0-paramiko_2.8.1
+Remote version/idstring: SSH-2.0-OpenSSH_7.5
+Connected (version 2.0, client OpenSSH_7.5)
+kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+Kex agreed: curve25519-sha256@libssh.org
+HostKey agreed: ssh-ed25519
+Cipher agreed: aes128-ctr
+MAC agreed: hmac-sha2-256
+Compression agreed: none
+kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+Switch to new keys ...
+Adding ssh-ed25519 host key for 10.240.40.31: b'd0d1b4b50e7418bab39605d511860391'
+userauth is OK
+Authentication (password) successful!
+[chan 0] Max packet in: 32768 bytes
+Received global request "hostkeys-00@openssh.com"
+Rejecting "hostkeys-00@openssh.com" global request from server.
+[chan 0] Max packet out: 32768 bytes
+Secsh channel 0 opened.
+[chan 0] Sesch channel 0 request ok
+[chan 0] Sesch channel 0 request ok
+[chan 0] EOF sent (0)
+starting thread (client mode): 0xe1b93250
+Local version/idstring: SSH-2.0-paramiko_2.8.1
+Remote version/idstring: SSH-2.0-OpenSSH_7.5
+Connected (version 2.0, client OpenSSH_7.5)
+kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+Kex agreed: curve25519-sha256@libssh.org
+HostKey agreed: ssh-ed25519
+Cipher agreed: aes128-ctr
+MAC agreed: hmac-sha2-256
+Compression agreed: none
+EOF in transport thread
+kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+Switch to new keys ...
+Adding ssh-ed25519 host key for 10.240.40.31: b'd0d1b4b50e7418bab39605d511860391'
+userauth is OK
+Authentication (password) successful!
+[chan 0] Max packet in: 32768 bytes
+Received global request "hostkeys-00@openssh.com"
+Rejecting "hostkeys-00@openssh.com" global request from server.
+[chan 0] Max packet out: 32768 bytes
+Secsh channel 0 opened.
+[chan 0] Sesch channel 0 request ok
+[chan 0] Sesch channel 0 request ok
+[chan 0] EOF sent (0)
+starting thread (client mode): 0xe03327c0
+Local version/idstring: SSH-2.0-paramiko_2.8.1
+Remote version/idstring: SSH-2.0-OpenSSH_7.5
+Connected (version 2.0, client OpenSSH_7.5)
+kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+Kex agreed: curve25519-sha256@libssh.org
+HostKey agreed: ssh-ed25519
+Cipher agreed: aes128-ctr
+MAC agreed: hmac-sha2-256
+Compression agreed: none
+kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+Switch to new keys ...
+Adding ssh-ed25519 host key for 10.240.40.31: b'd0d1b4b50e7418bab39605d511860391'
+EOF in transport thread
+userauth is OK
+Authentication (password) successful!
+[chan 0] Max packet in: 32768 bytes
+Received global request "hostkeys-00@openssh.com"
+Rejecting "hostkeys-00@openssh.com" global request from server.
+[chan 0] Max packet out: 32768 bytes
+Secsh channel 0 opened.
+[chan 0] Sesch channel 0 request ok
+[chan 0] EOF sent (0)
+[host 10.240.40.31 session-id 3410] installing listener <ncclient.operations.rpc.RPCReplyListener object at 0x7fc7e0332ee0>
+[host 10.240.40.31 session-id 3410] Requesting 'CloseSession'
+[host 10.240.40.31 session-id 3410] queueing <?xml version="1.0" encoding="UTF-8"?><nc:rpc xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:61fec83f-ed58-4393-a391-5ed9afefdef3"><nc:close-session/></nc:rpc>
+[host 10.240.40.31 session-id 3410] Sync request, will wait for timeout=30
+EOF in transport thread
+[host 10.240.40.31 session-id 3410] Sending message
+[host 10.240.40.31 session-id 3410] Sending:
+<?xml version="1.0" encoding="UTF-8"?><nc:rpc xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:61fec83f-ed58-4393-a391-5ed9afefdef3"><nc:close-session/></nc:rpc>]]>]]>
+[host 10.240.40.31 session-id 3410] parsing netconf v1.0
+[host 10.240.40.31 session-id 3410] Received message from host
+[host 10.240.40.31 session-id 3410] Received:
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/21.2R0/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:61fec83f-ed58-4393-a391-5ed9afefdef3">
+<ok/>
+</rpc-reply>
+[host 10.240.40.31 session-id 3410] dispatching message to different listeners: <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/21.2R0/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:61fec83f-ed58-4393-a391-5ed9afefdef3">
+<ok/>
+</rpc-reply>
+[host 10.240.40.31 session-id 3410] dispatching message to listener: <ncclient.transport.session.NotificationHandler object at 0x7fc7e1b93fd0>
+[host 10.240.40.31 session-id 3410] dispatching message to listener: <ncclient.operations.rpc.RPCReplyListener object at 0x7fc7e0332ee0>
+[host 10.240.40.31 session-id 3410] Delivering to <ncclient.operations.session.CloseSession object at 0x7fc7e1b8e5e0>
+[host 10.240.40.31 session-id 3410] dispatching message to listener: <jnpr.junos.device.DeviceSessionListener object at 0x7fc7e1b8e4f0>
+[host 10.240.40.31 session-id 3410] Trying another round of parsing since there is still data
+[host 10.240.40.31 session-id 3410] parsing netconf v1.0
+[chan netconf-subsystem-0] EOF received (netconf-subsystem-0)
+[chan netconf-subsystem-0] EOF sent (netconf-subsystem-0)
+[host 10.240.40.31 session-id 3410] Broke out of main loop, error=SessionCloseError("Unexpected session close\nIN_BUFFER: `b'\\n<!-- session end at 2021-11-30 19:46:50 UTC -->\\n'`")
+[host 10.240.40.31 session-id 3410] dispatching error to <ncclient.transport.session.NotificationHandler object at 0x7fc7e1b93fd0>
+[host 10.240.40.31 session-id 3410] dispatching error to <ncclient.operations.rpc.RPCReplyListener object at 0x7fc7e0332ee0>
+[host 10.240.40.31 session-id 3410] dispatching error to <jnpr.junos.device.DeviceSessionListener object at 0x7fc7e1b8e4f0>

@@ -1,0 +1,38 @@
+---
+devices:
+- type: qfx
+  ip: 10.240.40.30
+  desc: leaf
+  credentials: root_account
+  active: true
+  bundle: MyBundle
+- type: qfx
+  ip: 10.240.40.31
+  desc: leaf
+  ssh:
+    port: '22'
+  credentials: root_account
+- type: qfx
+  ip: 10.240.40.51
+  desc: leaf
+  ssh:
+    port: '22'
+  credentials: root_account
+  active: false
+
+
+credentials:
+- root_account:
+    username: root
+    password: root123
+  root_account2:
+    username: root
+    password: admin123
+
+
+bundle:
+- qfx:
+  - jcollect-sh\junos_CLI_L2.sh
+  - jcollect-sh\junos_CLI_CONFIG.sh
+- MyBundle:
+  - jcollect-sh\junos_CLI_BGP.sh
