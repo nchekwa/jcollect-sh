@@ -15,6 +15,7 @@ exe cli -c 'show pim neighbors detail | no-more'
 exe cli -c 'show pim join summary | no-more'
 exe cli -c 'show pim join extensive | no-more'
 exe cli -c 'show pim statistics | no-more'
+exe cli -c 'show pim rps | no-more'
 
 # IGMP
 exe cli -c 'show igmp group detail | no-more'

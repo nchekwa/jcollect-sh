@@ -11,7 +11,7 @@ echo ""; }
 
 exe cprod -A fpc0 -c "show l2 manager mac-table"
 exe cprod -A fpc0 -c "show l2 manager ctxt-history"
-exe cprod -A fpc0 -c "show l2 manager ctxt-history mac-address 00:00:5e:00:01:7f"
+#exe cprod -A fpc0 -c "show l2 manager ctxt-history mac-address 00:00:5e:00:01:7f"
 
 exe cprod -A fpc0 -c 'show ifl'
 exe cprod -A fpc0 -c 'show ifl brief'
@@ -54,28 +54,3 @@ exe cprod -A fpc0 -c 'show halp-pkt pkt-stats'
 exe cprod -A fpc0 -c 'show ttp stat'
 sleep 10
 done
-
-
-exe cprod -A fpc0 -c 'set dcb bc "d chg FP_STORM_CONTROL_METERS_X"'
-exe cprod -A fpc0 -c 'set dcb bc "d chg FP_STORM_CONTROL_METERS_Y"'
-exe cprod -A fpc0 -c 'set dcb bc "g chg STORM_CONTROL_METER_CONFIG"'
-exe cprod -A fpc0 -c 'set dcb bc "g chg STORM_CONTROL_METER_MAPPING"'
-exe cprod -A fpc0 -c 'set dcb bc "phy info"'
-
-exe cprod -A fpc0 -c 'set dcb bc "show c"'
-exe cprod -A fpc0 -c 'set dcb bc "show c cpu"'
-exe cprod -A fpc0 -c 'set dcb bc "ps"'
-exe cprod -A fpc0 -c 'set dcb bc "vlan show"'
-exe cprod -A fpc0 -c 'set dcb bc "stg show"'
-exe cprod -A fpc0 -c 'set dcb bc "l2 show"'
-exe cprod -A fpc0 -c 'set dcb bc "trunk show"'
-exe cprod -A fpc0 -c 'set dcb bc "getreg chg ing_event_debug"'
-exe cprod -A fpc0 -c 'set dcb bc "getreg egr_drop_vector"'
-exe cprod -A fpc0 -c 'set dcb bc "fp show"'
-exe cprod -A fpc0 -c 'set dcb bc "d chg my_station_tcam"'
-exe cprod -A fpc0 -c 'set dcb bc "l3 l3table show"'
-exe cprod -A fpc0 -c 'set dcb bc "d chg egress_mask"'
-exe cprod -A fpc0 -c 'set dcb bc "d chg my_station_tcam"'
-exe cprod -A fpc0 -c 'set dcb bc "d port"'
-exe cprod -A fpc0 -c 'set dcb bc "show c"'
-exe cprod -A fpc0 -c 'set dcb bc "show c cpu"'

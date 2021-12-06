@@ -9,6 +9,7 @@ echo ""
 "$@" 
 echo ""; }
 
+
 exe cprod -A fpc0 -c "show bridge-domain"
 for i in `cprod -A fpc0 -c "show bridge-domain" |  grep '[^[:space:]]' | egrep -v "^Bridging Domain" | awk '{print $1 ":" $2}'`
 do
@@ -22,3 +23,5 @@ do
    cprod -A fpc0 -c "show bridge-domain entry 0x$bd_index ifbd all"
    echo ""
 done
+
+exe cprod -A fpc0 -c "show bridge-domain irb"

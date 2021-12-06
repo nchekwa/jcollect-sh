@@ -10,6 +10,8 @@ echo ""
 echo ""; }
 
 # TASK
+show task summary
+show task io
 exe cli -c 'show task memory detail | no-more'
 exe cli -c 'show task memory summary | no-more'
 exe cli -c 'show task io | no-more'
