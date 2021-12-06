@@ -18,6 +18,7 @@ from pprint import pprint
 from contextlib import contextmanager
 from pathlib import Path
 
+
 # pip install junos_eznc
 from jnpr.junos import Device
 from jnpr.junos.utils.fs import FS
