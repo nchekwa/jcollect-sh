@@ -9,7 +9,7 @@ PATH=/var/root
 # Remove old files if needed via SSH:
 # *** BE CAREFUL !!! ***
 # ie.:
-# bash# cd /var/root ; rm jcollect-* junos_* junos-*
+# bash# cd /var/root ; rm jcollect-*.sh junos_*.sh junos-qfx_*.sh
 
 for host in "${HOSTS[@]}"; do
   for file in "${FILES[@]}"; do
