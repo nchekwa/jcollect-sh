@@ -16,6 +16,12 @@ exe cli -c 'show interfaces diagnostics optics | no-more'
 exe cli -c 'show interfaces extensive | no-more'
 exe cli -c 'show interfaces mc-ae extensive | no-more'
 
+# LLDP
+exe cli -c 'show lldp detail | no-more'
+exe cli -c 'show lldp statistics | no-more'
+exe cli -c 'show lldp neighbors | no-more'
+exe cli -c 'show lldp neighbors detail | no-more'
+
 # ARP
 exe cli -c 'show arp no-resolve expiration-time state | no-more'
 exe cli -c 'show arp state no-resolve | no-more'
@@ -44,3 +50,9 @@ exe cli -c 'show lacp timeouts | no-more'
 # VLAN
 exe cli -c 'show vlans | no-more'
 exe cli -c 'show vlans extensive | no-more'
+
+# STP
+exe cli -c 'show spanning-tree bridge | no-more'
+exe cli -c 'show spanning-tree interface | no-more'
+exe cli -c 'show spanning-tree interface detail | no-more'
+exe cli -c 'show spanning-tree statistics interface detail | no-more'

@@ -1,5 +1,5 @@
 # Run: pip3 install -r requirements.txt
 pythonping
 junos_eznc
-paramiko
 termcolor
+boltons

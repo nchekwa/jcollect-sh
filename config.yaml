@@ -1,27 +1,24 @@
 ---
 devices:
   leaf1:
-    type: qfx5k
     ip: 10.240.40.30
     desc: leaf
     credentials: root_account
     active: true
     bundle: MyBundle
   leaf2:
-    type: qfx5k
     ip: 10.240.40.31
     desc: leaf
     ssh:
       port: '22'
     credentials: root_account
   spine1:
-    type: qfx5k
     ip: 10.240.40.51
     desc: leaf
     ssh:
       port: '22'
     credentials: root_account
-    active: false
+    active: true
 
 
 credentials:
@@ -34,8 +31,9 @@ credentials:
 
 
 bundle:
-  qfx5k:
-    - jcollect-sh\junos_CLI_L2.sh
-    - jcollect-sh\junos_CLI_CONFIG.sh
+  junos-qfx:
+    - junos_CLI_L2.sh
+    - junos_CLI_CONFIG.sh
   MyBundle:
-    - jcollect-sh\junos_CLI_BGP.sh
+    - junos_CLI_BGP.sh
+    - junos_CLI_L2.sh
