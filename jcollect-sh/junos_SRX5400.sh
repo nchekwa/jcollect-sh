@@ -10,8 +10,8 @@ echo ""
 echo ""; }
 
 
-X=10
-while [[ ${X} -ge 1 ]]
+n=1
+while [ $n -lt 10 ]
 do
   exe srx-cprod.sh -s spu -c "show xlr cpu detail all"
   exe srx-cprod.sh -s spu -c "show dpq drop"
@@ -21,8 +21,6 @@ do
   exe srx-cprod.sh -s spu -c "show usp flow counters all"
   exe srx-cprod.sh -s spu -c "test watchdog snapshot"
   exe srx-cprod.sh -s spu -c "show watchdog snapshot"
-  X=$((X-1))
+  n=$(( n+1 ))
   sleep 30
 done
-
-
