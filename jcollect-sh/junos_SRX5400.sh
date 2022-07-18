@@ -21,7 +21,6 @@ do
   exe srx-cprod.sh -s spu -c "show usp flow counters all"
   exe srx-cprod.sh -s spu -c "test watchdog snapshot"
   exe srx-cprod.sh -s spu -c "show watchdog snapshot"
-
   exe srx-cprod.sh -s spu -c "show usp flow counters resource-mgr-cpu"
   exe srx-cprod.sh -s spu -c "show usp resource-manager cpu"
   n=$(( n+1 ))
