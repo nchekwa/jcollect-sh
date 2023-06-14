@@ -34,7 +34,14 @@ do
       exe eval $(printf 'cprod -A fpc0 -c "set dcbcm bcmshell \\"phy diag %s dsc\\"" ' "$qsfp_bcm_port_name")
       exe eval $(printf 'cprod -A fpc0 -c "set dcbcm bcmshell \\"phy diag %s eyescan\\"" ' "$qsfp_bcm_port_name")
       exe eval $(printf 'cprod -A fpc0 -c "set dcbcm bcmshell \\"port %s\\"" ' "$qsfp_bcm_port_name")
+
+      ## run command 4 times (every 5 secends) // 20 sec
+      for k in 1 2 3 4
+      do
       exe eval $(printf 'cprod -A fpc0 -c "set dcbcm bcmshell \\"show c %s ce0\\"" ' "$qsfp_bcm_port_name")
+      sleep 5
+      done
+      
    done
 done
 
