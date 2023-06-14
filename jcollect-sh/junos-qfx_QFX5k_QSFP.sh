@@ -24,7 +24,7 @@ do
    exe cprod -A fpc0 -c "show qsfp $qsfp_index alarms"
    exe cprod -A fpc0 -c "show qsfp $qsfp_index diagnostics"
 
-   for j in `cprod -A fpc0 -c "show dcb ifd all" | grep '[^[:space:]]' | egrep $qsfp_port  | awk '{sub(/\r$/,"",$4); print $4 ":" $5}'`
+   for j in `cprod -A fpc0 -c "show dcb ifd all" | grep '[^[:space:]]' | egrep $qsfp_port  | awk '{sub(/\r$/,"",$5); print $4 ":" $5}'`
    do
       qsfp_bcm_port_num=${j%:*:}
       qsfp_bcm_port_name=${j#*:}
