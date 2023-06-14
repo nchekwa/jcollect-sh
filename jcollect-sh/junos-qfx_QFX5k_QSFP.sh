@@ -18,7 +18,7 @@ do
    qsfp_index=${i%:*}
    qsfp_name=${i#*:}
    qsfp_port=$(echo "$qsfp_name" | cut -d'-' -f2-)
-   echo  "=== $qsfp_index - $qsfp_name"
+   echo  "#=== $qsfp_index - $qsfp_name"
    echo ""
    exe cprod -A fpc0 -c "show qsfp $qsfp_index info"
    exe cprod -A fpc0 -c "show qsfp $qsfp_index alarms"
@@ -29,7 +29,7 @@ do
       qsfp_bcm_port_num=${j%:*:}
       qsfp_bcm_port_name=${j#*:}
 
-      echo  "=== show dcb ifd all> $qsfp_name -> $qsfp_bcm_port_name "
+      echo  "#=== show dcb ifd all> $qsfp_name -> $qsfp_bcm_port_name "
       echo ""
       exe eval $(printf 'cprod -A fpc0 -c "set dcbcm bcmshell \\"phy diag %s dsc\\"" ' "$qsfp_bcm_port_name")
       exe eval $(printf 'cprod -A fpc0 -c "set dcbcm bcmshell \\"phy diag %s eyescan\\"" ' "$qsfp_bcm_port_name")
