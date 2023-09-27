@@ -9,7 +9,9 @@ echo ""
 "$@" 
 echo ""; }
 
+alias cli='exe cli'
+
 # Firewall
-exe cli -c 'show interfaces filters | no-more'
-exe cli -c 'show firewall detail  | no-more'
-exe cli -c 'show firewall log | no-more'
+cli -c 'show interfaces filters | no-more'
+cli -c 'show firewall detail  | no-more'
+cli -c 'show firewall log | no-more'

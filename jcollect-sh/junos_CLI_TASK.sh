@@ -9,14 +9,15 @@ echo ""
 "$@" 
 echo ""; }
 
+alias cli='exe cli'
+
 # TASK
-show task summary
-show task io
-exe cli -c 'show task memory detail | no-more'
-exe cli -c 'show task memory summary | no-more'
-exe cli -c 'show task io | no-more'
-exe cli -c 'show task replication | no-more'
-exe cli -c 'show task history | no-more'
-exe cli -c 'show task statistics | no-more'
-exe cli -c 'show task job | no-more'
-exe cli -c 'show task jobs | no-more'
+cli -c 'show task summary | no-more'
+cli -c 'show task io | no-more'
+cli -c 'show task memory detail | no-more'
+cli -c 'show task memory summary | no-more'
+cli -c 'show task replication | no-more'
+cli -c 'show task history | no-more'
+cli -c 'show task statistics | no-more'
+cli -c 'show task job | no-more'
+cli -c 'show task jobs | no-more'

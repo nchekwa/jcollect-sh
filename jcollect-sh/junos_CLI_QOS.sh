@@ -9,7 +9,9 @@ echo ""
 "$@" 
 echo ""; }
 
+alias cli='exe cli'
+
 # QoS
-exe cli -c 'show policer detail | no-more'
-exe cli -c 'show class-of-service | no-more'
-exe cli -c 'show class-of-service fabric statistics | no-more'
+cli -c 'show policer detail | no-more'
+cli -c 'show class-of-service | no-more'
+cli -c 'show class-of-service fabric statistics | no-more'

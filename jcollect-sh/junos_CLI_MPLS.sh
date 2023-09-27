@@ -9,17 +9,19 @@ echo ""
 "$@" 
 echo ""; }
 
+alias cli='exe cli'
+
 # MPLS
-exe cli -c 'show route table mpls.0 | no-more'
-exe cli -c 'show route table mpls.0 extensive | no-more'
-exe cli -c 'show mpls interface detail  | no-more'
-exe cli -c 'show mpls lsp terse | no-more'
-exe cli -c 'show mpls lsp | no-more'
-exe cli -c 'show mpls lsp extensive | no-more'
-exe cli -c 'show mpls lsp ingress | no-more'
-exe cli -c 'show mpls lsp transit | no-more'
+cli -c 'show route table mpls.0 | no-more'
+cli -c 'show route table mpls.0 extensive | no-more'
+cli -c 'show mpls interface detail  | no-more'
+cli -c 'show mpls lsp terse | no-more'
+cli -c 'show mpls lsp | no-more'
+cli -c 'show mpls lsp extensive | no-more'
+cli -c 'show mpls lsp ingress | no-more'
+cli -c 'show mpls lsp transit | no-more'
 
 
 # Traffic Engineering Database - Display the entries in the Multiprotocol Label Switching (MPLS) traffic engineering database.
-exe cli -c 'show ted database | no-more'
-exe cli -c 'show ted database extensive | no-more'
+cli -c 'show ted database | no-more'
+cli -c 'show ted database extensive | no-more'

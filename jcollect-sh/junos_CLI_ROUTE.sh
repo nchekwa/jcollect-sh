@@ -9,27 +9,29 @@ echo ""
 "$@" 
 echo ""; }
 
-# Route
-exe cli -c 'show route all | no-more'
-exe cli -c 'show route summary | no-more'
+alias cli='exe cli'
 
-exe cli -c 'show route resolution unresolved | no-more'
-exe cli -c 'show route hidden all extensive | no-more'
-exe cli -c 'show route damping history | no-more'
+# Route
+cli -c 'show route all | no-more'
+cli -c 'show route summary | no-more'
+
+cli -c 'show route resolution unresolved | no-more'
+cli -c 'show route hidden all extensive | no-more'
+cli -c 'show route damping history | no-more'
 
 # KRT - module within the Routing Process Daemon (RPD) that synchronized the routing tables with the forwarding tables in the kernel.
-exe cli -c 'show krt queue | no-more'
-exe cli -c 'show krt state | no-more'
+cli -c 'show krt queue | no-more'
+cli -c 'show krt state | no-more'
 
 # PFE
-exe cli -c 'show pfe route ip | no-more'
-exe cli -c 'show pfe route mpls | no-more'
-exe cli -c 'show pfe route summary | no-more'
-exe cli -c 'show pfe statistics traffic | no-more'
-exe cli -c 'show pfe statistics notification | no-more'
-exe cli -c 'show pfe statistics exceptions | no-more'
+cli -c 'show pfe route ip | no-more'
+cli -c 'show pfe route mpls | no-more'
+cli -c 'show pfe route summary | no-more'
+cli -c 'show pfe statistics traffic | no-more'
+cli -c 'show pfe statistics notification | no-more'
+cli -c 'show pfe statistics exceptions | no-more'
 
 # FORWARDING TABLE
-exe cli -c 'show route forwarding-table all | no-more'                  #large output   
-exe cli -c 'show route forwarding-table all extensive | no-more'        #large output  
-exe cli -c 'show route forwarding-table summary | no-more'
+cli -c 'show route forwarding-table all | no-more'                  #large output   
+cli -c 'show route forwarding-table all extensive | no-more'        #large output  
+cli -c 'show route forwarding-table summary | no-more'

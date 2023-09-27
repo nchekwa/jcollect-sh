@@ -1,5 +1,8 @@
 # JCCOLLECT-SH Release Notes
 
+## v0.4
+2023-09-28
+* *UPDATE* - Change syntax to use alias with 'exe' prefix - just to be able use inside script original commands syntax from ^[beggining line]
 
 ## v0.3
 2021-07-25

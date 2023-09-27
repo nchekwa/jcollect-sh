@@ -9,7 +9,9 @@ echo ""
 "$@" 
 echo ""; }
 
+alias cli='exe cli'
+
 # CONFIG
-exe cli -c 'show configuration | display omit | except SECRET-DATA | no-more'
-exe cli -c 'show configuration | display omit | except SECRET-DATA | display set | no-more'
-exe cli -c 'show configuration | display omit | display inheritance | except SECRET-DATA | no-more'
+cli -c 'show configuration | display omit | except SECRET-DATA | no-more'
+cli -c 'show configuration | display omit | except SECRET-DATA | display set | no-more'
+cli -c 'show configuration | display omit | display inheritance | except SECRET-DATA | no-more'

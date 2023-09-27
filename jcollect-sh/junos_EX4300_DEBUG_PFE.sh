@@ -9,8 +9,11 @@ echo ""
 "$@" 
 echo ""; }
 
-exe cprod -A fpc0 -c "show ukern_trace handles"
-for i in `cprod  -A fpc0 -c "show ukern_trace handles" | egrep "^[0-9].* " | awk '{print $1 ":" $2}'`
+alias cprod='exe cprod'
+alias cli='exe cli'
+
+cprod -A fpc0 -c "show ukern_trace handles"
+for i in `/usr/sbin/cprod  -A fpc0 -c "show ukern_trace handles" | egrep "^[0-9].* " | awk '{print $1 ":" $2}'`
 do
    trace_id=${i%:*}
    trace_name=${i#*:}
@@ -19,42 +22,42 @@ do
    echo -n "=== "; date '+%Y-%m-%d %H:%M:%S %Z [%z] | %s'
    echo "======================================================================="
    echo ""
-   cprod  -A fpc0 -c "show ukern_trace $trace_id"
+   /usr/sbin/cprod  -A fpc0 -c "show ukern_trace $trace_id"
    echo ""
 done
 
 
-exe cprod -A fpc0 -c 'show ppm statistics protocol lacp'
-exe cprod -A fpc0 -c 'show link stats'
-exe cprod -A fpc0 -c 'show ppm adjacencies'
-exe cprod -A fpc0 -c 'show threads cpu'
-exe cprod -A fpc0 -c 'show halp-l2 mac_table'
-exe cprod -A fpc0 -c 'show halp-pkt pkt-stats'
-exe cprod -A fpc0 -c 'show route bridge'
-exe cprod -A fpc0 -c 'show l2 manager bridge-domains detail'
-exe cprod -A fpc0 -c 'show l2 manager mac-table'
-exe cprod -A fpc0 -c 'show l2 manager statistics ipc'
-exe cprod -A fpc0 -c 'show l2 manager statistics ipc-queue'
-exe cprod -A fpc0 -c 'show l2 manager statistics pfe'
-exe cprod -A fpc0 -c 'show l2 manager statistics hal'
-exe cprod -A fpc0 -c 'show l2 manager hw-to-sw-diff'
-exe cprod -A fpc0 -c 'show l2 manager sw-to-hw-diff'                       
-exe cprod -A fpc0 -c 'show pfe statistics nhdb'
-exe cprod -A fpc0 -c 'show pfe_bcm bcmshell "show errors"'
-exe cprod -A fpc0 -c 'show pfe_bcm bcmshell "trunk show"'
-exe cprod -A fpc0 -c 'show pfe_bcm bcmshell "pw"'
-exe cprod -A fpc0 -c 'show pfe_bcm bcmshell "l2 show"'
-exe cprod -A fpc0 -c 'show pfe_bcm bcmshell "l3 l3table show"'
-exe cprod -A fpc0 -c 'show pfe_bcm bcmshell "ps"'
-exe cprod -A fpc0 -c 'show nhdb all'
-exe cprod -A fpc0 -c 'show nhdb summary'
-exe cprod -A fpc0 -c 'show nhdb l2addr stats'
-exe cprod -A fpc0 -c 'show shim bridge interface'
-exe cprod -A fpc0 -c 'show ifd brief'
-exe cprod -A fpc0 -c 'show sfp list'
-exe cprod -A fpc0 -c 'show filter'
-exe cprod -A fpc0 -c 'show filter hw all'
-exe cprod -A fpc0 -c 'show filter hw stats'
-exe cprod -A fpc0 -c 'show filter hw groups'
-exe cprod -A fpc0 -c 'show filter hw fp_slice'
-exe cprod -A fpc0 -c 'show filter counters'
+cprod -A fpc0 -c 'show ppm statistics protocol lacp'
+cprod -A fpc0 -c 'show link stats'
+cprod -A fpc0 -c 'show ppm adjacencies'
+cprod -A fpc0 -c 'show threads cpu'
+cprod -A fpc0 -c 'show halp-l2 mac_table'
+cprod -A fpc0 -c 'show halp-pkt pkt-stats'
+cprod -A fpc0 -c 'show route bridge'
+cprod -A fpc0 -c 'show l2 manager bridge-domains detail'
+cprod -A fpc0 -c 'show l2 manager mac-table'
+cprod -A fpc0 -c 'show l2 manager statistics ipc'
+cprod -A fpc0 -c 'show l2 manager statistics ipc-queue'
+cprod -A fpc0 -c 'show l2 manager statistics pfe'
+cprod -A fpc0 -c 'show l2 manager statistics hal'
+cprod -A fpc0 -c 'show l2 manager hw-to-sw-diff'
+cprod -A fpc0 -c 'show l2 manager sw-to-hw-diff'                       
+cprod -A fpc0 -c 'show pfe statistics nhdb'
+cprod -A fpc0 -c 'show pfe_bcm bcmshell "show errors"'
+cprod -A fpc0 -c 'show pfe_bcm bcmshell "trunk show"'
+cprod -A fpc0 -c 'show pfe_bcm bcmshell "pw"'
+cprod -A fpc0 -c 'show pfe_bcm bcmshell "l2 show"'
+cprod -A fpc0 -c 'show pfe_bcm bcmshell "l3 l3table show"'
+cprod -A fpc0 -c 'show pfe_bcm bcmshell "ps"'
+cprod -A fpc0 -c 'show nhdb all'
+cprod -A fpc0 -c 'show nhdb summary'
+cprod -A fpc0 -c 'show nhdb l2addr stats'
+cprod -A fpc0 -c 'show shim bridge interface'
+cprod -A fpc0 -c 'show ifd brief'
+cprod -A fpc0 -c 'show sfp list'
+cprod -A fpc0 -c 'show filter'
+cprod -A fpc0 -c 'show filter hw all'
+cprod -A fpc0 -c 'show filter hw stats'
+cprod -A fpc0 -c 'show filter hw groups'
+cprod -A fpc0 -c 'show filter hw fp_slice'
+cprod -A fpc0 -c 'show filter counters'

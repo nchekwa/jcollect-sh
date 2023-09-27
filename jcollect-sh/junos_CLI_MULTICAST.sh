@@ -9,18 +9,20 @@ echo ""
 "$@" 
 echo ""; }
 
+alias cli='exe cli'
+
 # PIM
-exe cli -c 'show pim interfaces | no-more'
-exe cli -c 'show pim neighbors detail | no-more'
-exe cli -c 'show pim join summary | no-more'
-exe cli -c 'show pim join extensive | no-more'
-exe cli -c 'show pim statistics | no-more'
-exe cli -c 'show pim rps | no-more'
+cli -c 'show pim interfaces | no-more'
+cli -c 'show pim neighbors detail | no-more'
+cli -c 'show pim join summary | no-more'
+cli -c 'show pim join extensive | no-more'
+cli -c 'show pim statistics | no-more'
+cli -c 'show pim rps | no-more'
 
 # IGMP
-exe cli -c 'show igmp group detail | no-more'
-exe cli -c 'show igmp statistics | no-more'
+cli -c 'show igmp group detail | no-more'
+cli -c 'show igmp statistics | no-more'
 
 # Multicast
-exe cli -c 'show multicast route extensive | no-more'
-exe cli -c 'show multicast rpf | no-more'
+cli -c 'show multicast route extensive | no-more'
+cli -c 'show multicast rpf | no-more'

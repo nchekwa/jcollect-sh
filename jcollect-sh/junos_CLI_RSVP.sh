@@ -9,9 +9,11 @@ echo ""
 "$@" 
 echo ""; }
 
+alias cli='exe cli'
+
 # RSVP
-exe cli -c 'show rsvp version | no-more'
-exe cli -c 'show rsvp interface extensive | no-more'
-exe cli -c 'show rsvp neighbor detail | no-more'
-exe cli -c 'show rsvp session extensive | no-more'
-exe cli -c 'show rsvp session ingress | no-more'
+cli -c 'show rsvp version | no-more'
+cli -c 'show rsvp interface extensive | no-more'
+cli -c 'show rsvp neighbor detail | no-more'
+cli -c 'show rsvp session extensive | no-more'
+cli -c 'show rsvp session ingress | no-more'

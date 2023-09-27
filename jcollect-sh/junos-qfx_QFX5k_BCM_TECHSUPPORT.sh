@@ -9,10 +9,13 @@ echo ""
 "$@" 
 echo ""; }
 
-exe cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport l3uc"'
-exe cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport l3mc"'
-exe cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport mpls"'
-exe cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport vfp"'
-exe cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport vxlan"'
-exe cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport vlan"'
-exe cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport load-balance"'
+alias cprod='exe cprod'
+alias cli='exe cli'
+
+cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport l3uc"'
+cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport l3mc"'
+cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport mpls"'
+cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport vfp"'
+cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport vxlan"'
+cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport vlan"'
+cprod -A fpc0 -c 'set dcbcm bcmshell "techsupport load-balance"'

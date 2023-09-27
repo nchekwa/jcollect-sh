@@ -9,22 +9,24 @@ echo ""
 "$@" 
 echo ""; }
 
+alias cli='exe cli'
+
 # BGP
-exe cli -c 'show configuration protocols bgp | no-more'
-exe cli -c 'show configuration protocols bgp | display set | no-more'
+cli -c 'show configuration protocols bgp | no-more'
+cli -c 'show configuration protocols bgp | display set | no-more'
 
-exe cli -c 'show bgp summary | no-more'
-exe cli -c 'show bgp statistics | no-more'
-exe cli -c 'show bgp group | no-more'
-exe cli -c 'show bgp neighbor | no-more'
+cli -c 'show bgp summary | no-more'
+cli -c 'show bgp statistics | no-more'
+cli -c 'show bgp group | no-more'
+cli -c 'show bgp neighbor | no-more'
 
-exe cli -c 'show route protocol bgp | no-more'
-exe cli -c 'show route protocol bgp terse | no-more'
-exe cli -c 'show route protocol bgp all extensive | no-more'
+cli -c 'show route protocol bgp | no-more'
+cli -c 'show route protocol bgp terse | no-more'
+cli -c 'show route protocol bgp all extensive | no-more'
 
-peers=$(cli -c "show bgp neighbor | display xml | no-more" | grep peer-address | awk -F">" '{print $2}' | awk -F"<" '{print $1}' | sed -e 's/+[[:digit:]]*$//')
+peers=$(/usr/sbin/cli -c "show bgp neighbor | display xml | no-more" | grep peer-address | awk -F">" '{print $2}' | awk -F"<" '{print $1}' | sed -e 's/+[[:digit:]]*$//')
 for peer in $peers
 do
-exe cli -c "show route receive-protocol bgp $peer | no-more"
-exe cli -c "show route advertising-protocol bgp $peer | no-more"
+cli -c "show route receive-protocol bgp $peer | no-more"
+cli -c "show route advertising-protocol bgp $peer | no-more"
 done
