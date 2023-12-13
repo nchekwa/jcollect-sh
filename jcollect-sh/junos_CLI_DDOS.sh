@@ -23,11 +23,13 @@ cli -c 'show ddos-protection protocols violations | no-more'
 cli -c 'show ddos-protection protocols vxlan violations | no-more'
 cli -c 'show ddos-protection protocols arp violations | no-more'
 
+cprod -A fpc0 -c 'show dcbcm ifd all'
 cprod -A fpc0 -c "show halp-pkt asic-queues"
 
 ## run command 6 times (every 10 secends)   // 60 sec
 for i in 1 2 3 4 5 6 
 do
+cprod -A fpc0 -c 'set dcbcm bcmshell "show c"'
 cprod -A fpc0 -c "show halp-pkt pkt-stats"
 sleep 10
 done
