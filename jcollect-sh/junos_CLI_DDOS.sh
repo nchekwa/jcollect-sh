@@ -33,3 +33,5 @@ cprod -A fpc0 -c 'set dcbcm bcmshell "show c"'
 cprod -A fpc0 -c "show halp-pkt pkt-stats"
 sleep 10
 done
+
+echo -n "=== END: " ; date '+%Y-%m-%d %H:%M:%S %Z [%z] | %s'
