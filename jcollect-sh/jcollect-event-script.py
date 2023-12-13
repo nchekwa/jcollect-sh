@@ -83,6 +83,7 @@ if shell_scripts:
         print(f"Run {script_description}: {jcollect_scripts_directory}{script} > {output_folder}/{output_file}")
         command = f"sh {jcollect_scripts_directory}{script} > {output_folder}/{output_file} 2>&1"
         os.system(command)
+        print(f"> file show {output_folder}/{output_file}")
 else:
     print("No scripts to execute.")
 
