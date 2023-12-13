@@ -4,31 +4,32 @@
 ###############################################################################
 #
 # Mode: EVENT (react on log events)
-# !!! Script needs to be located in /var/db/scripts/event/
+# !!! The script needs to be located in /var/db/scripts/event/
 #
-# Run script based on event (ex. ddos_protocol_violation_set)
+# Run script based on an event (ex. ddos_protocol_violation_set)
 #    QFX# set event-options policy ddos-event events ddos_protocol_violation_set
 #    QFX# set event-options policy ddos-event then event-script jcollect-event-script.py output-filename event-script.log
 #    QFX# set event-options policy ddos-event then event-script jcollect-event-script.py destination LOCAL_VAR_LOG
 #    QFX# set event-options policy ddos-event then event-script jcollect-event-script.py output-format text
 #    QFX# set event-options destinations LOCAL_VAR_LOG archive-sites /var/log
 #
-# !!! By default, python scripts runs using user nobody. 
+# !!! By default, python scripts run using user nobody. 
 # 	 QFX# set event-options event-script file jcollect-event-script.py python-script-user <user-name>
 #
 # Simulate event:
-# bash:~ # logger -e DDOS_PROTOCOL_VIOLATION_SET -a attribute=value -d process -l logical-system-name -p external.notice "message"
+# bash:~ qfx#     logger -e DDOS_PROTOCOL_VIOLATION_SET -a attribute=value -d process -l logical-system-name -p external.notice "message"
+# bash:~ evo#     eventd_logger -e DDOS_PROTOCOL_VIOLATION_SET -a attribute=value -d process -l logical-system-name -p external.notice "message"
 #
 ###############################################################################
 #
 # Mode: OP (operation)
-# !!! Script needs to be located in /var/db/scripts/op/
+# !!! The script needs to be located in /var/db/scripts/op/
 #
-# Script needs to be configured in configuration op section:
+# Script needs to be configured in the configuration OP section:
 #    QFX# set system scripts op file jcollect-event-script.py
 #    QFX# set system scripts language python3
 #
-# Run script manualy:
+# Run script manually:
 #    QFX> op jcollect-event-script.py
 #
 # ###############################################################################
