@@ -31,6 +31,6 @@ done
 i=0
 while [ $i -lt 49 ]; do
 	next=$(($i + 1))
-	cli -c "show configuration | compare rollback $next"
+	cli -c "show configuration | except SECRET-DATA | compare rollback $next"
 	i=$(($i + 1))
 done
