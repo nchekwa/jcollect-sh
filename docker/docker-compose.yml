@@ -1,0 +1,46 @@
+---
+version: "3.9"
+services:
+  ubuntu:
+    hostname: jcollect
+    container_name: jcollect
+    image: jcollect:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    restart: unless-stopped
+    networks:
+      LAN1:
+        ipv4_address: 192.168.1.102
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+    deploy:
+        resources:
+            limits:
+              #cpus: 0.50
+              memory: 8G
+            reservations:
+              #cpus: 0.25
+              memory: 4G
+
+
+#networks:
+#  LAN1:
+#    external: true
+
+
+networks:
+  LAN1:
+    name: LAN1
+    driver: macvlan
+    driver_opts:
+      parent: ens18
+    enable_ipv6: false
+    ipam:
+      config:
+      - subnet: 192.168.1.0/24
+        gateway: 192.168.1.1
+        ip_range: 192.168.1.254/31
