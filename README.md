@@ -24,14 +24,14 @@ In the folder together with `jcollect-sh-script.sh` will be included in the log 
 
 `Python3` script that is executed `on Juniper device`, in the **EVENT** option (`/var/db/scripts/event/`) or on demand **OP** (operation) (`/var/db/scripts/op/`).
 
-* Details: [jcollect-event-script.md](./docs/jcollect-event-script.md)
+* Details: in annotation of `jcollect-event-script.py` script
 * Script: [jcollect-event-script.py](./jcollect-event-script.py)
 
 ## jcollect-slicer.py [run on local PC]
 
 `Python3` script that is executed `on local PC`, allows to `slice` log files into individual files (1 file = 1 command).
 
-* Details: [jcollect-slicer.md](./docs/jcollect-slicer.md)
+* Details: N/A
 * Script: [jcollect-slicer.py](./jcollect-slicer.py)
 
 ## jcollect/jcollect.py [run on local PC]

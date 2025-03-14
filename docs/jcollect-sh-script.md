@@ -46,6 +46,12 @@ root@Juniper:RE:0% sh jcollect-sh-script.sh
 
 That's it! The script will run automatically and collect all the necessary information.
 
+You have also option to run command with `nohup` to ensure that the script is not terminated even if the SSH session is disconnected.
+
+```bash
+root@Juniper-cli> nohup sh jcollect-sh-script.sh &
+```
+
 ## Understanding the Results
 
 ### Where to Find the Results
