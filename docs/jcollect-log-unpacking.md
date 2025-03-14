@@ -29,18 +29,18 @@ If you run the `jcollect-sh-script.sh` tool - you can put  the `jcollect-log-unp
 After you extract your log files from the `jcollect archive`, follow these steps:
 
 1. Navigate to the log directory
-2. Run the Python script
+2. Run the Python script (`on local PC`) example for Linux Users:
 
 ```bash
 # First, go to the log directory in your extracted jcollect archive
-cd /tmp/jcollect/YYYY-MM-DD_THHMM_hostname_jcollect/log
+bash# cd /home/user/YYYY-MM-DD_THHMM_hostname_jcollect/log
 
 # Verify the script is there
-ls jcollect*
+bash#ls jcollect*
 > jcollect-log-unpacking.py
 
 # Run the script
-python3 jcollect-log-unpacking.py
+bash# python3 jcollect-log-unpacking.py
 ```
 
 ### What Happens When You Run The Script
