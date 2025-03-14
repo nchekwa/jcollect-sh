@@ -13,7 +13,7 @@
 #    QFX# set event-options policy ddos-event then event-script jcollect-event-script.py output-format text
 #    QFX# set event-options destinations LOCAL_VAR_LOG archive-sites /var/log
 #
-# !!! By default, python scripts run using user nobody. 
+# !!! By default, python scripts run using user nobody.
 # 	 QFX# set event-options event-script file jcollect-event-script.py python-script-user <user-name>
 #
 # Simulate event:
@@ -38,7 +38,7 @@
 # event -> op:    cp /var/db/scripts/event/jcollect-event-script.py /var/db/scripts/op/jcollect-event-script.py
 # op -> event:    cp /var/db/scripts/op/jcollect-event-script.py /var/db/scripts/event/jcollect-event-script.py
 #
-# 
+#
 
 import os
 from datetime import datetime
@@ -94,6 +94,3 @@ end_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 print("> ")
 print(f"> Script execution ended at: {end_time}")
 print("All Done")
-
-
-
